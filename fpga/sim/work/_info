@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/wchan/Documents/GitHub/e155Lab3/fpga/radiant_project/lab3_wc
+T_opt
+!s110 1757980787
+VTW;z;ke82OO1UL5?Gkb]U1
+04 20 4 work key_decode_testbench fast 0
+=1-00be43e571f3-68c8a873-2cd-326c
+R0
+!s12f OEM25U2 
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work -L iCE40UP +acc
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2024.2;79
+vkey_decode
+2C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/key_decode.sv
+Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1757980491
+!i10b 1
+!s100 o^iodYhg4[H9c8N9MljGg0
+I<62EUgKTfb@iWZ?4ZU:hG1
+S1
+Z3 dC:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim
+w1757980481
+8C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/key_decode.sv
+FC:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/key_decode.sv
+!i122 0
+L0 7 33
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2024.2;79
+r1
+!s85 0
+31
+!s108 1757980491.000000
+!s107 C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/key_decode.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/key_decode.sv|
+!i113 0
+Z6 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vkey_decode_testbench
+2C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv
+R2
+!s110 1757980779
+!i10b 1
+!s100 fW@94cn>50C<[0<XOSFQb3
+IkW_JSWFYlZS=`<f`:6[6H2
+S1
+R3
+w1757980775
+8C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv
+FC:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv
+!i122 2
+L0 13 54
+R4
+R5
+r1
+!s85 0
+31
+!s108 1757980779.000000
+!s107 C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv|
+!i113 0
+R6
+R1

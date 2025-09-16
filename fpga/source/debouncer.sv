@@ -6,7 +6,9 @@
 module debouncer(input logic clk, reset,
                 input logic [3:0] sig_in, 
                 input logic key_pressed,
-                output logic [3:0] sig_out);
+                output logic [3:0] sig_out,
+				output logic sig_recieved);
+
 
     // initialize state information
     typedef enum logic [3:0] {WAIT_LOW, DEBOUNCEUP, WAIT_HIGH, DEBOUNCEDOWN}
@@ -21,15 +23,15 @@ module debouncer(input logic clk, reset,
 
     logic [3:0] sig;
     // debouncer : FSM
-    always_ff @(posedge int_osc) begin  
-       counter <= counter + 19'd2; //operates at ~46.2 Hz
-    end
+    //always_ff @(posedge int_osc) begin  
+      // counter <= counter + 19'd2; //operates at ~46.2 Hz
+    //end
 
             
     always_comb begin
 
         case(state)
-            WAIT_LOW:   if(signal_receieved) nextstate = DEBOUNCEUP; 
+            WAIT_LOW:   if(sig_receieved) nextstate = DEBOUNCEUP; 
                         else nextstate = WAIT_LOW;
 
             DEBOUNCEUP:         begin 
@@ -38,16 +40,20 @@ module debouncer(input logic clk, reset,
                                     sig_out <= sig_in; //TODO: Where else should i assign values?
                                 end 
             WAIT_HIGH:
-                        if(~signal_receieved)  nextstate = DEBOUNCEDOWN;
+                        if(~sig_receieved)  nextstate = DEBOUNCEDOWN;
                         else nextstate = WAIT_HIGH;
             DEBOUNCEDOWN:       begin 
                                     #4000000 // wait ~83ms
                                     nextstate = WAIT_LOW;
                                 end 
-            default:    nextstate = WAIT_LOW;
+            default:    begin  
+							nextstate = WAIT_LOW;
+							assign sig_out = 4'b000;
+						end
         endcase
 
     end
     //TODO: where is my output logic??
+	assign sig_recieved = (state == WAIT_HIGH); //i feel like this is good to have. no reason why
 
 endmodule

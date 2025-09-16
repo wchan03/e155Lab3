@@ -8,7 +8,7 @@ module scanner(input logic clk,
                 input logic [3:0] columns,
                 output logic [3:0] rows,
                 input logic key_pressed,
-                ouput logic [3:0] value 
+                output logic [3:0] value 
                 );
     //R1P = row 1 pressed
     typedef enum logic [7:0] {ROW1, R1P, ROW2, R2P, ROW3, R3P, ROW4, R4P} // TODO: need more states?

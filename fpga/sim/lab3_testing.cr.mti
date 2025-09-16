@@ -1,0 +1,13 @@
+C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/debouncer.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/debouncer.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module debouncer
+** Error: C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/debouncer.sv(34): (vlog-2730) Undefined variable: 'signal_receieved'.
+
+} {4.0 5.0} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/key_decode.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/key_decode.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module key_decode
+
+Top level modules:
+	key_decode
+
+} {} {}}

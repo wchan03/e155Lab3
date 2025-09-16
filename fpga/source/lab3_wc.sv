@@ -11,7 +11,7 @@ module lab3_wc(input logic [3:0] columns,
     logic int_osc;
     logic reset;
     logic enable; //FIGURE THESE TWO OUT
-    logic [3:0] value1, value2;
+    logic [3:0] value1, value2, new_value;
 
 
     // Set up clock 
@@ -41,20 +41,21 @@ module lab3_wc(input logic [3:0] columns,
     end
 
     logic signal_receieved;
-    signal_receieved = ~(data[0] & data[1] & data[2] & data[3]); //TODO: correct syntax?
+    signal_receieved <= ~(data[0] & data[1] & data[2] & data[3]); //TODO: correct syntax?
 
     // scanning
-    scanner scannerFSM() //TODO: INPUT VALUES HERE
+    scanner scannerFSM(.clk(int_osc), .reset(reset), .columns(columns), .rows(rows), .key_pressed(signal_recieved), .value(new_value)); 
 
     //debouncing
+	debouncer debounceFSM(.clk(clk), .reset(reset), .columns(sig_in), .key_pressed(signal_recieved), .sig_out(//TODO FINISH HERE! , .sig_recieved(FINSIH HERE!!));
 
 
     // switch values
-    assign value2 = value1;
-    assign value1 = newvalue; //TODO: find new value
+    value2 <= value1;
+    value1 <= new_value; //TODO: find new value
 
     // Write to the display
-    seg_disp_write sdw(value1, value2, int_osc, seg_out, anodes); //TODO: address the clock in here
+    seg_disp_write sdw(value1, value2, int_osc, seg_out, anodes);
 
 
 endmodule 
