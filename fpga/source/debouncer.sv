@@ -7,7 +7,7 @@ module debouncer(input logic clk, reset,
                 input logic [3:0] sig_in, 
                 input logic key_pressed,
                 output logic [3:0] sig_out,
-				output logic sig_recieved);
+				output logic sig_recieved); // do i do anything with this signal?
 
 
     // initialize state information
@@ -18,42 +18,72 @@ module debouncer(input logic clk, reset,
     // register
 	always_ff @(posedge clk) begin
 		if (reset == 0) state <= WAIT_LOW;
-		state <= nextstate;
+        else state <= nextstate;
 	end
 
+    //counter 
+
+    logic [19:0] counter;  // 20-bit counter for ~83ms at 48MHz
+    logic counter_done;
+    
+    // Register
+    always_ff @(posedge clk) begin
+        if (reset == 0) begin
+            state <= WAIT_LOW;
+            counter <= 0;
+        end 
+        else begin
+            state <= nextstate;
+            if (state == DEBOUNCEUP || state == DEBOUNCEDOWN) begin // count at the waiting states
+                if (counter_done)
+                    counter <= 0;
+                else
+                    counter <= counter + 1;
+            end else begin
+                counter <= 0;
+            end
+        end
+    end
+    
+    // Counter done signal. for 83ms. TODO: make shorter?
+    // For 48MHz clock: 48e6 * 0.083 = 3,984,000 cycles
+    assign counter_done = (counter == 20'd3984000);
+
     logic [3:0] sig;
-    // debouncer : FSM
-    //always_ff @(posedge int_osc) begin  
-      // counter <= counter + 19'd2; //operates at ~46.2 Hz
-    //end
+
 
             
     always_comb begin
 
         case(state)
-            WAIT_LOW:   if(sig_receieved) nextstate = DEBOUNCEUP; 
+            nextstate = state;
+            WAIT_LOW:   if(key_pressed) nextstate = DEBOUNCEUP; //do i ned more begin and end statements here?
                         else nextstate = WAIT_LOW;
 
-            DEBOUNCEUP:         begin 
-                                    #4000000 // wait ~83ms. or should i be using a counter
-                                    nextstate = WAIT_HIGH;
-                                    sig_out <= sig_in; //TODO: Where else should i assign values?
+            DEBOUNCEUP:        if(counter_done) begin 
+                                    if (key_pressed) nextstate = WAIT_HIGH;
+                                    else nextstate = WAIT_LOW;
                                 end 
             WAIT_HIGH:
-                        if(~sig_receieved)  nextstate = DEBOUNCEDOWN;
+                        if(!key_pressed)  nextstate = DEBOUNCEDOWN;
                         else nextstate = WAIT_HIGH;
-            DEBOUNCEDOWN:       begin 
-                                    #4000000 // wait ~83ms
-                                    nextstate = WAIT_LOW;
+            DEBOUNCEDOWN:       if(counter_done) begin
+                                    if(!key_pressed) nextstate = WAIT_LOW;
+                                    else nextstate = WAIT_HIGH;
                                 end 
-            default:    begin  
-							nextstate = WAIT_LOW;
-							assign sig_out = 4'b000;
-						end
+            default:    nextstate = WAIT_LOW;
         endcase
 
     end
+
     //TODO: where is my output logic??
+    always_ff @(posedge clk) begin //necessary to be in a flip flop?
+        if (reset == 0) begin
+            sig_out <= 4'b0000;
+        end else if (state == DEBOUNCEUP && counter_done && key_pressed) begin
+            sig_out <= sig_in;  // Capture the stable input
+        end
+    end
 	assign sig_recieved = (state == WAIT_HIGH); //i feel like this is good to have. no reason why
 
 endmodule
