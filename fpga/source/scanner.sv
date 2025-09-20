@@ -7,12 +7,11 @@ module scanner(input logic clk,
                 input logic reset,
                 input logic [3:0] columns,
                 output logic [3:0] rows,
-                //input logic key_pressed,
                 output logic [3:0] value 
                 );
 
     //R1P = row 1 pressed
-    typedef enum logic [7:0] {ROW1, R1P, ROW2, R2P, ROW3, R3P, ROW4, R4P} // TODO: need more states?
+    typedef enum logic [7:0] {ROW1, R1P, ROW2, R2P, ROW3, R3P, ROW4, R4P}
     statetype;
         statetype state, nextstate;
     
@@ -32,46 +31,46 @@ module scanner(input logic clk,
 
     always_comb begin
         nextstate = state;
-        rows = 4'b0000; 
+        rows = 4'b0000; //TODO: should the rows be written to a different way? i.e. 4'b1111
         case(state)
             ROW1: begin
                     rows <= 4'b1000;
-                    if(key_pressed_raw) nextstate = RP1;// go to debouncer FSM
+                    if(key_pressed_raw) nextstate = R1P;// go to debouncer FSM
                     else nextstate = ROW2;
                    end
             R1P: begin
                     rows <= 4'b1000;
-                    if(key_pressed_raw) nextstate = RP1; // stay at this state until key is unpressed
+                    if(key_pressed_raw) nextstate = R1P; // stay at this state until key is unpressed
                     else nextstate = ROW2;
                    end
             ROW2: begin
                     rows <= 4'b0100;
-                    if(key_pressed_raw) nextstate = RP2;
+                    if(key_pressed_raw) nextstate = R2P;
                     else nextstate = ROW3;
                    end
             R2P: begin
                     rows <= 4'b0100;
-                    if(key_pressed_raw) nextstate = RP2; // stay here until key is unpressed
+                    if(key_pressed_raw) nextstate = R2P; // stay here until key is unpressed
                     else nextstate = ROW3;
                    end
             ROW3: begin
                     rows <= 4'b0010;
-                    if(key_pressed_raw) nextstate = RP3;
+                    if(key_pressed_raw) nextstate = R3P;
                     else nextstate = ROW4;
                    end
             R3P: begin
                     rows <= 4'b0010;
-                    if(key_pressed_raw) nextstate = RP3; // stay here until key is unpressed
+                    if(key_pressed_raw) nextstate = R3P; // stay here until key is unpressed
                     else nextstate = ROW4;
                    end
             ROW4: begin
                     rows <= 4'b0001;
-                    if(key_pressed_raw) nextstate = RP4;
+                    if(key_pressed_raw) nextstate = R4P;
                     else nextstate = ROW1;
                    end
-            R4P: begin //are these stages redundant?
+            R4P: begin //TODO:are these stages redundant?
                     rows <= 4'b0001;
-                    if(key_pressed_raw) nextstate = RP4; // stay here until key is unpressed
+                    if(key_pressed_raw) nextstate = R4P; // stay here until key is unpressed
                     else nextstate = ROW1;
                    end
             default: nextstate = ROW1;
@@ -87,14 +86,12 @@ module scanner(input logic clk,
         end
     end
 
-    //end logic? 
-
     //debouncer 
     debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(column_data),
                          .key_pressed(key_pressed_raw), .sig_out(value), .sig_recieved(key_pressed_debounced));
 
 
-    //decode inside here
+    //decode value from row and column value
     key_decode kd(rows, columns, value);
 
 

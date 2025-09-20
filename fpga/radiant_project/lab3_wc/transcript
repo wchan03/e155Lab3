@@ -14,50 +14,84 @@
 # // and may not be used in any way not expressly authorized by SISW.
 # //
 # Loading project lab3_testing
-# Compile of key_decode.sv failed with 2 errors.
-# Compile of key_decode.sv failed with 2 errors.
-# Compile of key_decode.sv failed with 4 errors.
-# Compile of key_decode.sv failed with 20 errors.
-# Compile of key_decode.sv was successful.
-# Compile of key_decode_testbench.sv failed with 1 errors.
-# Compile of key_decode_testbench.sv failed with 16 errors.
-# Compile of debouncer.sv failed with 1 errors.
-# Compile of key_decode_testbench.sv failed with 1 errors.
+# Compile of debouncer_testbench.sv failed with 4 errors.
 # Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv failed with 6 errors.
+# Compile of lab3_wc_testbench.sv was successful.
+# Compile of scanner_testbench.sv failed with 1 errors.
+# Compile of debouncer.sv failed with 6 errors.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv failed with 3 errors.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv failed with 8 errors.
+# Compile of seg_disp_write.sv failed with 1 errors.
+# 12 compiles, 7 failed with 29 errors.
 vsim -gui work.key_decode_testbench
 # vsim -gui work.key_decode_testbench 
-# Start time: 16:58:40 on Sep 15,2025
+# Start time: 15:34:54 on Sep 19,2025
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Error (suppressible): C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv(21): (vopt-13259) Missing instance name in instantiation of module/program/interface 'key_decode'.
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
-# Error loading design
-# End time: 16:58:41 on Sep 15,2025, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 15
-vsim -gui work.key_decode work.key_decode_testbench -L iCE40UP -voptargs=+acc
-# vsim -gui work.key_decode work.key_decode_testbench -L iCE40UP -voptargs="+acc" 
-# Start time: 16:59:06 on Sep 15,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-# ** Error (suppressible): C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv(21): (vopt-13259) Missing instance name in instantiation of module/program/interface 'key_decode'.
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
-# Error loading design
-# End time: 16:59:06 on Sep 15,2025, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 2
-# Compile of key_decode_testbench.sv was successful.
-vsim -gui work.key_decode_testbench -L iCE40UP -voptargs=+acc
-# vsim -gui work.key_decode_testbench -L iCE40UP -voptargs="+acc" 
-# Start time: 16:59:47 on Sep 15,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
 # Loading sv_std.std
 # Loading work.key_decode_testbench(fast)
-# Loading work.key_decode(fast)
-add wave -position insertpoint  \
-sim:/key_decode_testbench/r \
-sim:/key_decode_testbench/c \
-sim:/key_decode_testbench/value
-run 100
-# Causality operation skipped due to absence of debug database file
+run 800
+# Compile of key_decode_testbench.sv was successful.
+# Break key hit
+# Break in file C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv
+
+restart -f
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading work.key_decode_testbench(fast)
+
+
+
+
+
+
+
+
+
+
+
+
+
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading work.key_decode_testbench(fast)
+run 30
+# Break key hit
+# Break in file C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv
+# Compile of key_decode_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+run 30
+# Break key hit
+# Break in file C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv
+quit -sim
+# End time: 15:48:02 on Sep 19,2025, Elapsed time: 0:13:08
+# Errors: 0, Warnings: 1
+# Compile of debouncer.sv failed with 2 errors.
+# Compile of debouncer.sv was successful.
+# Compile of debouncer_testbench.sv failed with 1 errors.
+# Compile of debouncer_testbench.sv failed with 1 errors.
+# Compile of debouncer_testbench.sv was successful.
+# Compile of debouncer_testbench.sv was successful.
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv failed with 6 errors.
+# Compile of lab3_wc_testbench.sv was successful.
+# Compile of scanner_testbench.sv failed with 1 errors.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv failed with 2 errors.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# 12 compiles, 3 failed with 9 errors.

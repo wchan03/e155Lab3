@@ -17,7 +17,7 @@ module debouncer(input logic clk, reset,
 
     // register
 	always_ff @(posedge clk) begin
-		if (reset == 0) state <= WAIT_LOW;
+		if (reset) state <= WAIT_LOW;
         else state <= nextstate;
 	end
 
@@ -39,11 +39,10 @@ module debouncer(input logic clk, reset,
                     counter <= 0;
                 else
                     counter <= counter + 1;
-            end else begin
-                counter <= 0;
             end
-        end
+            else counter <= 0;
     end
+end
     
     // Counter done signal. for 83ms. TODO: make shorter?
     // For 48MHz clock: 48e6 * 0.083 = 3,984,000 cycles
@@ -56,9 +55,10 @@ module debouncer(input logic clk, reset,
     always_comb begin
 
         case(state)
-            nextstate = state;
-            WAIT_LOW:   if(key_pressed) nextstate = DEBOUNCEUP; //do i ned more begin and end statements here?
-                        else nextstate = WAIT_LOW;
+            WAIT_LOW:   begin 
+                            if(key_pressed) nextstate = DEBOUNCEUP; //do i ned more begin and end statements here?
+                            else nextstate = WAIT_LOW;
+                        end
 
             DEBOUNCEUP:        if(counter_done) begin 
                                     if (key_pressed) nextstate = WAIT_HIGH;

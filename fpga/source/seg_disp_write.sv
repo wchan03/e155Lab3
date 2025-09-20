@@ -1,23 +1,22 @@
 // Wava Chan
 // wchan@g.hmc.edu
 // Sept. 13, 2025
-// TODO: Summary
+// Writes to a dual segment display based on two input values
 
 module seg_disp_write(input logic [3:0] value1, value2, 
                       input logic clk,
                       output logic [6:0] seg_out, 
 				      output logic [1:0] anodes);
     
+	// internal logic
     logic select; //0 for display 0, 1 for display 1
     logic [3:0] value; // Selected value to write
-    logic int_osc; // internal clock
     logic [19:0] counter;
-    //clock generation? or can i pass that in as an input
 
     
 
     // Counter
-    always_ff @(posedge int_osc) begin  
+    always_ff @(posedge clk) begin  
         counter <= counter + 19'd3; //TODO: double check frequency here
     end
     
@@ -54,9 +53,9 @@ module seg_disp_write(input logic [3:0] value1, value2,
 			default: seg_intm <= 7'b1111111;
 		endcase 
 		
-		seg <= ~seg_intm; // Flip all bits to pull segments DOWN to turn them on 
+		seg_out <= ~seg_intm; // Flip all bits to pull segments DOWN to turn them on 
 	end
 
-    demux2_1 dm(select, anodes); 
+    demux2_1 dm(select, anodes); //turn on anode depending on select
     
 endmodule

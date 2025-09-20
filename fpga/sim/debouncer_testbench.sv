@@ -37,22 +37,22 @@ module debouncer_testbench();
 			reset = 0;
 			//#10;
 			
-			#20
+			#20;
 			columns <= 4'b0001;
 			//expected output
-			assert(sig_expected==4'b0001;) else $error("no dice");
+			assert(sig_expected==4'b0001) else $error("no dice");
 			
-			#20
+			#20;
 			columns <= 4'b0010;
-			assert(sig_expected==4'b0010;) else $error("no dice");
+			assert(sig_expected==4'b0010) else $error("no dice");
 			
-			#20
-			columns <=4'b0100
-			assert(sig_expected==4'b0100;) else $error("no dice");
+			#20;
+			columns <=4'b0100;
+			assert(sig_expected==4'b0100) else $error("no dice");
 			
-			#20
+			#20;
 			columns <= 4'b1000;
-			assert(sig_expected==4'b1000;) else $error("no dice");
+			assert(sig_expected==4'b1000) else $error("no dice");
 			
 			
 		end

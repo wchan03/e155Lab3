@@ -49,11 +49,11 @@ module lab3_wc(input logic [3:0] columns,
 
 
     // switch values
-    value2 <= value1;
-    value1 <= new_value; //TODO: find new value
+    assign value2 = value1;
+    assign value1 = new_value; 
 
     // Write to the display
-    seg_disp_write sdw(value1, value2, int_osc, seg_out, anodes);
+    seg_disp_write sdw(.value1(value1), .value(value2), .clk(int_osc), seg_out, anodes);
 
 
 endmodule 

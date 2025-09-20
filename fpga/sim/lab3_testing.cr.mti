@@ -1,13 +1,51 @@
-C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/debouncer.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/debouncer.sv
+C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/debouncer.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/debouncer.sv
 Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling module debouncer
-** Error: C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/debouncer.sv(34): (vlog-2730) Undefined variable: 'signal_receieved'.
-
-} {4.0 5.0} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/key_decode.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/key_decode.sv
-Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
--- Compiling module key_decode
 
 Top level modules:
-	key_decode
+	debouncer
+
+} {} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/scanner_testbench.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/scanner_testbench.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module scanner_testbench
+** Error: C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/scanner_testbench.sv(41): (vlog-2730) Undefined variable: 'ROW1'.
+C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/scanner_testbench.sv(100): Verilog Compiler exiting
+
+} {4.0 5.0} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_wc_testbench.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_wc_testbench.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module lab3_wc_testbench
+
+Top level modules:
+	lab3_wc_testbench
+
+} {} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/lab3_wc.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/lab3_wc.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module lab3_wc
+** Error (suppressible): C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/lab3_wc.sv(13): (vlog-2388) 'reset' already declared in this scope (lab3_wc) at C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/lab3_wc.sv(7).
+** Error: (vlog-13069) C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/lab3_wc.sv(56): near "value2": syntax error, unexpected IDENTIFIER, expecting .* or '.'.
+
+} {5.0 6.0} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/demux2_1.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/demux2_1.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module demux2_1
+
+Top level modules:
+	demux2_1
+
+} {} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_testbench.sv {0 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_testbench.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module lab3_testbench
+** Error: C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_testbench.sv(26): (vlog-2730) Undefined variable: 'clk'.
+** Error: C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_testbench.sv(36): (vlog-2730) Undefined variable: 'reset'.
+** Error: (vlog-13069) C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_testbench.sv(46): near ";": syntax error, unexpected ';'.
+** Error: (vlog-13069) C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_testbench.sv(50): near ";": syntax error, unexpected ';'.
+** Error: (vlog-13069) C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_testbench.sv(54): near "assert": syntax error, unexpected "SystemVerilog keyword 'assert' ", expecting ';'.
+** Error: (vlog-13069) C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/lab3_testbench.sv(58): near ";": syntax error, unexpected ';'.
+
+} {4.0 10.0} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/mux.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/source/mux.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module mux
+
+Top level modules:
+	mux
 
 } {} {}}
