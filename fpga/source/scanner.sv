@@ -17,7 +17,7 @@ module scanner(input logic clk,
     
     // set up necessary internal logic
     logic key_pressed_raw, key_pressed_debounced;
-    logic [3:0] column_data;
+    logic [3:0] column_data, debounced_value;
 
     assign key_pressed_raw = (columns != 4'b1111); //active low columns
 
@@ -35,7 +35,7 @@ module scanner(input logic clk,
         case(state)
             ROW1: begin
                     rows <= 4'b1000;
-                    if(key_pressed_raw) nextstate = R1P;// go to debouncer FSM
+                    if(key_pressed_raw) nextstate = R1P;
                     else nextstate = ROW2;
                    end
             R1P: begin
@@ -68,7 +68,7 @@ module scanner(input logic clk,
                     if(key_pressed_raw) nextstate = R4P;
                     else nextstate = ROW1;
                    end
-            R4P: begin //TODO:are these stages redundant?
+            R4P: begin
                     rows <= 4'b0001;
                     if(key_pressed_raw) nextstate = R4P; // stay here until key is unpressed
                     else nextstate = ROW1;
@@ -81,19 +81,18 @@ module scanner(input logic clk,
     always_ff @(posedge clk) begin
         if (reset == 0) begin
             column_data <= 4'b1111;
-        end else if (key_pressed_raw && !key_pressed_debounced) begin
+        end else if (key_pressed_raw ) begin //&& !key_pressed_debounced
             column_data <= columns;  // Capture columns when key first pressed
         end
     end
 
     //debouncer 
     debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(column_data),
-                         .key_pressed(key_pressed_raw), .sig_out(value), .sig_recieved(key_pressed_debounced));
+                         .key_pressed(key_pressed_raw), .sig_out(debounced_value), .sig_recieved(key_pressed_debounced));
 
 
     //decode value from row and column value
-    key_decode kd(rows, columns, value);
-
-
+    // key_decode kd(rows, ~debounced_value, value); //TODO: need to flip bits of debounced_value?
+    assign key_valid = key_pressed_debounced;
     
 endmodule

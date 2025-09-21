@@ -24,57 +24,57 @@ module key_decode_testbench();
 	//run tests
 	initial begin 
 		// row 1 hot. TODO: doublecheck this syntax
-		r <= 4'b1000; c <=4'b0001; #1; assert(value == 4'b0001)
+		r = 4'b1000; c =4'b1110; #10; assert(value == 4'b0001)
 										else begin 
 											$error("failed input %b %b with output %b", r, c, value);
 											errors <= errors + 1;
 										end
 		test_count <= test_count + 1; 
-		c <= 4'b0010; #1; 	assert(value == 4'b0010)
+		c = 4'b1101; #10; 	assert(value == 4'b0010)
 							else begin 
 									$error("failed input %b %b with output %b", r, c, value);
 									errors <= errors + 1;
 								end
 		test_count <= test_count + 1; 
-		c <= 4'b0100; #1; 	assert(value == 4'b0011)
+		c = 4'b1011; #10; 	assert(value == 4'b0011)
 							else begin 
 									$error("failed input %b %b with output %b", r, c, value);
 									errors <= errors + 1;
 								end
 		test_count <= test_count + 1; 
-		c <= 4'b1000; #1; 	assert(value == 4'b1010)
+		c = 4'b0111; #10; 	assert(value == 4'b1010)
 							else begin 
 									$error("failed input %b %b with output %b", r, c, value);
 									errors <= errors + 1;
 								end
 		test_count <= test_count + 1; 
 		// row 2 hot
-		r <= 4'b0100; c <=4'b0001; #1; assert(value == 4'b0100)
+		r = 4'b0100; c =4'b1110; #1; assert(value == 4'b0100)
 										else begin 
 												$error("failed input %b %b with output %b", r, c, value);
 												errors <= errors + 1;
 											end
 		test_count <= test_count + 1; 
-		c <= 4'b0010; #1; 	assert(value == 4'b0101)
+		c = 4'b1101; #10; 	assert(value == 4'b0101)
 							else begin 
 									$error("failed input %b %b with output %b", r, c, value);
 									errors <= errors + 1;
 								end
 		test_count <= test_count + 1; 
-		c <= 4'b0100; #1; 	assert(value == 4'b0110)
+		c = 4'b1011; #10; 	assert(value == 4'b0110)
 							else begin 
 									$error("failed input %b %b with output %b", r, c, value);
 									errors <= errors + 1;
 								end
 		test_count <= test_count + 1; 
-		c <= 4'b1000; #1; 	assert(value == 4'b1011)
+		c = 4'b0111; #10; 	assert(value == 4'b1011)
 							else begin 
 									$error("failed input %b %b with output %b", r, c, value);
 									errors <= errors + 1;
 								end
 		test_count <= test_count + 1; 
 		//row 3 hot
-		r <= 4'b0010; c <=4'b0001; #1; assert(value == 4'b0111)
+		r = 4'b0010; c =4'b1110; #10; assert(value == 4'b0111)
 										else begin 
 											$error("failed input %b %b with output %b", r, c, value);
 											errors <= errors + 1;

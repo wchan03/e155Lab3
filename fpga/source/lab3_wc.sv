@@ -13,6 +13,8 @@ module lab3_wc(input logic [3:0] columns,
     logic reset;
     logic enable; //FIGURE THESE TWO OUT
     logic [3:0] value1, value2, new_value;
+    logic [15:0] clk_div;
+    logic scan_clk;
 
 
     // Set up clock 
@@ -20,6 +22,12 @@ module lab3_wc(input logic [3:0] columns,
     HSOSC #(.CLKHF_DIV(2'b01))  //48MHz.TODO: is this too fast for my keypad?
         hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 
+
+    always_ff @(posedge clk) begin
+        clk_div <= clk_div + 1;
+    end
+
+    assign scan_clk = clk_div[15]; // ~732Hz at 48MHz - good for scanning
 
     //synchronizer: 2 flip flops to sync input signal 
     // TODO: is this too complex? should i be testing this separately?
@@ -44,7 +52,7 @@ module lab3_wc(input logic [3:0] columns,
     //logic signal_receieved;
     //signal_receieved <= ~(data[0] & data[1] & data[2] & data[3]); //TODO: correct syntax?
 
-    // scanning
+    // scanning TODO: different clock?
     scanner scannerFSM(.clk(int_osc), .reset(reset), .columns(columns), .rows(rows), .value(new_value)); 
 
 

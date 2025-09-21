@@ -44,9 +44,9 @@ module debouncer(input logic clk, reset,
     end
 end
     
-    // Counter done signal. for 83ms. TODO: make shorter?
-    // For 48MHz clock: 48e6 * 0.083 = 3,984,000 cycles
-    assign counter_done = (counter == 20'd3984000);
+    // Counter done signal. for 20ms. TODO: make shorter?
+    // For 48MHz clock: 48e6 * 0.020 = 960,000 cycles
+    assign counter_done = (counter == 20'd960000);
 
     logic [3:0] sig;
 
