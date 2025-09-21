@@ -18,11 +18,20 @@ module scanner(input logic clk,
     // set up necessary internal logic
     logic key_pressed_raw, key_pressed_debounced;
     logic [3:0] column_data, debounced_value;
+    logic [15:0] clk_div;
+    logic scan_clk;
 
     assign key_pressed_raw = (columns != 4'b1111); //active low columns
 
-    // register
-	always_ff @(posedge clk) begin
+    //set up slower clock to scan at a slower rate
+    always_ff @(posedge clk) begin
+        clk_div <= clk_div + 1;
+    end
+
+    assign scan_clk = clk_div[15]; // ~732Hz at 48MHz - good for scanning
+
+    // state register
+	always_ff @(posedge scan_clk) begin
 		if (reset == 0) state <= ROW1;
 		else state <= nextstate;
 	end
@@ -78,7 +87,7 @@ module scanner(input logic clk,
     end
 
     // Capture column data when key is pressed
-    always_ff @(posedge clk) begin
+    always_ff @(posedge scan_clk) begin
         if (reset == 0) begin
             column_data <= 4'b1111;
         end else if (key_pressed_raw ) begin //&& !key_pressed_debounced

@@ -1,6 +1,12 @@
 // Wava Chan
 // wchan@g.hmc.edu
 // Sept. 15, 2025
+// Testbench for debouncer module
+
+`timescale 1ns/1ps
+// Wava Chan
+// wchan@g.hmc.edu
+// Sept. 15, 2025
 // Testing of Lab 3 for E155
 
 `timescale 1ns/1ps
@@ -42,23 +48,24 @@ module debouncer_testbench();
 			tests = 0;
 			errors = 0;
 			
-			#20;
+			#40;
+			key_pressed = 1;
 			columns = 4'b0001;
 			//expected output
-			assert(sig_expected==4'b0001) else $error("no dice");
+			assert(sig_expected==4'b0001) else $error("no dice. output = %b", sig_expected);
 			tests = tests + 1;
 			
-			#20;
+			#40;
 			columns = 4'b0010;
-			assert(sig_expected==4'b0010) else $error("no dice");
+			assert(sig_expected==4'b0010) else $error("no dice. output = %b", sig_expected);
 			
-			#20;
+			#40;
 			columns =4'b0100;
-			assert(sig_expected==4'b0100) else $error("no dice");
+			assert(sig_expected==4'b0100) else $error("no dice. output = %b", sig_expected);
 			
-			#20;
+			#40;
 			columns = 4'b1000;
-			assert(sig_expected==4'b1000) else $error("no dice");
+			assert(sig_expected==4'b1000) else $error("no dice. output = %b", sig_expected);
 			
 			
 		end

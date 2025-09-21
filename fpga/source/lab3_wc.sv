@@ -12,8 +12,7 @@ module lab3_wc(input logic [3:0] columns,
     logic int_osc;
     logic enable; //FIGURE THESE TWO OUT
     logic [3:0] value1, value2, new_value;
-    logic [15:0] clk_div;
-    logic scan_clk;
+    
 
 
     // Set up clock 
@@ -22,11 +21,6 @@ module lab3_wc(input logic [3:0] columns,
         hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 
 
-    always_ff @(posedge int_osc) begin
-        clk_div <= clk_div + 1;
-    end
-
-    assign scan_clk = clk_div[15]; // ~732Hz at 48MHz - good for scanning
 
     //synchronizer: 2 flip flops to sync input signal 
     // TODO: is this too complex? should i be testing this separately?

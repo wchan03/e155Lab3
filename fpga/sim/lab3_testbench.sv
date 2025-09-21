@@ -41,21 +41,21 @@ module lab3_testbench();
 			reset = 0;
 			//#10;
 			
-			#10
-			columns <= 4'b0001; //what am i testing here ;-;
+			#40
+			columns = 4'b0001; //what am i testing here ;-;
 			//expected output
 			assert(seg_test==4'b0001) else $error("no dice");
 			
-			#10
-			columns <= 4'b0010;
+			#40
+			columns = 4'b0010;
 			assert(seg_test==4'b0010) else $error("no dice");
 			
-			#10
-			columns <=4'b0100;
+			#40
+			columns =4'b0100;
 			assert(seg_test==4'b0100) else $error("no dice");
 			
-			#10
-			columns <= 4'b1000;
+			#40
+			columns = 4'b1000;
 			assert(seg_test==4'b1000) else $error("no dice");
 			
 			
