@@ -8,7 +8,7 @@ module key_decode(input logic [3:0] r, c,
                     output logic [3:0] value);
 
     // rows are encoded 1 hot
-    // so are columns 
+    // so are columns. bits are flipped inside call in scanner.sv
 	always_comb begin
 		if(r[3]) begin
 			if(c[0]) value = 4'b0001; // 1

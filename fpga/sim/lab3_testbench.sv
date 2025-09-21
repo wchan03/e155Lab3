@@ -14,8 +14,9 @@ module lab3_testbench();
 	// set up all necessary logic 
 	//logic clk, reset, key_pressed;
 	logic [3:0] columns, rows; 
-    logic [6:0] seg_out;
+    logic [6:0] seg_test;
     logic [1:0] anodes;
+	logic clk, reset;
 
 	// test signal? 
 	
@@ -27,7 +28,7 @@ module lab3_testbench();
 		end
 	
 	// instantiate DUT 
-	lab3_wc dut(.columns(columns), .rows(rows), .seg_out(seg_out), .anodes(anodes));
+	lab3_wc dut(.columns(columns), .rows(rows), .seg_out(seg_test), .anodes(anodes));
 	
 	//run tests
 	initial 
@@ -43,19 +44,19 @@ module lab3_testbench();
 			#10
 			columns <= 4'b0001; //what am i testing here ;-;
 			//expected output
-			assert(sig_expected==4'b0001;) else $error("no dice");
+			assert(seg_test==4'b0001) else $error("no dice");
 			
 			#10
 			columns <= 4'b0010;
-			assert(sig_expected==4'b0010;) else $error("no dice");
+			assert(seg_test==4'b0010) else $error("no dice");
 			
 			#10
-			columns <=4'b0100
-			assert(sig_expected==4'b0100;) else $error("no dice");
+			columns <=4'b0100;
+			assert(seg_test==4'b0100) else $error("no dice");
 			
 			#10
 			columns <= 4'b1000;
-			assert(sig_expected==4'b1000;) else $error("no dice");
+			assert(seg_test==4'b1000) else $error("no dice");
 			
 			
 		end

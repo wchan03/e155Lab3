@@ -22,7 +22,7 @@ module scanner(input logic clk,
     assign key_pressed_raw = (columns != 4'b1111); //active low columns
 
     // register
-	always_ff @(posedge clk) begin //TODO: is this the correct way to set up the clock?
+	always_ff @(posedge clk) begin
 		if (reset == 0) state <= ROW1;
 		else state <= nextstate;
 	end
@@ -92,7 +92,7 @@ module scanner(input logic clk,
 
 
     //decode value from row and column value
-    // key_decode kd(rows, ~debounced_value, value); //TODO: need to flip bits of debounced_value?
+    key_decode kd(rows, ~debounced_value, value); //TODO: need to flip bits of debounced_value?
     assign key_valid = key_pressed_debounced;
     
 endmodule

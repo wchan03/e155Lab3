@@ -16,10 +16,10 @@ module debouncer(input logic clk, reset,
         statetype state, nextstate;
 
     // register
-	always_ff @(posedge clk) begin
-		if (reset) state <= WAIT_LOW;
-        else state <= nextstate;
-	end
+	//always_ff @(posedge clk) begin
+	//	if (reset) state <= WAIT_LOW;
+      //  else state <= nextstate;
+	//end
 
     //counter 
 
@@ -41,9 +41,9 @@ module debouncer(input logic clk, reset,
                     counter <= counter + 1;
             end
             else counter <= 0;
+        end
     end
-end
-    
+        
     // Counter done signal. for 20ms. TODO: make shorter?
     // For 48MHz clock: 48e6 * 0.020 = 960,000 cycles
     assign counter_done = (counter == 20'd960000);

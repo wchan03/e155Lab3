@@ -10,11 +10,25 @@ module scanner_testbench();
 	// set up all necessary logic 
 	logic clk, reset, key_pressed;
 	logic [3:0] columns, rows, value;
+	integer errors, tests;
 
 	// set up test task frameworks
 	task row_test(input logic [3:0] r,  exp_r);
 		assert (r == exp_r)
-		else $error("rows being written wrong, expected %b, recieved %b", exp_r, r);
+		else begin 
+			$error("rows being written wrong, expected %b, recieved %b", exp_r, r);
+			errors = errors + 1;
+		end
+		tests = tests + 1;
+	endtask
+
+	task state_test(input logic exp_state);
+		assert(dut.state == exp_state) 
+		else begin 
+			$error("wrong state, %b", dut.state); 
+			errors = errors + 1;
+		end 
+		tests = tests + 1;
 	endtask
 	
 	
@@ -37,11 +51,14 @@ module scanner_testbench();
 			#10;
 			reset = 0;
 			//#10
+			//set up counters
+			tests = 0;
+			errors = 0;
 
 			//state enumeration: ROW1 = 0, R1P = 1, ROW2 = 3, R2P = 4, etc. 
-			columns <= 4'b1111; //TODO: should all columns be LOW or HIGH?
+			columns = 4'b1111; 
 			row_test(rows, 4'b1000);
-			assert(dut.state == 0) else $error("wrong state, %b", dut.state); 
+			state_test(0); //ROW1
 			#10;
 			row_test(rows, 4'b0100);
 			#10;
@@ -52,66 +69,68 @@ module scanner_testbench();
 
 			//should be back to row1 by now
 			row_test(rows, 4'b1000);
-			assert(dut.state == 0) else $error("wrong state, %b", dut.state); 
+			state_test(0); 
 
 			#10;
 			//test when there IS a column input
 
-			columns <=4'b0111; //TODO: should this be written in the previous clock cycle?
+			columns = 4'b0111; //TODO: should this be written in the previous clock cycle?
 			#10; // wait for state transition to RP1
 
-			assert(dut.state == 1) else $error("wrong state"); //worried about this one
+			state_test(1); //worried about this one
 			row_test(rows, 4'b1000);
 
 			#40; //wait for key decode and debouncer to work
 			assert(value == 4'b1010) else $error("incorrect output %b", value);
-			assert(dut.state == 1) else $error("wrong state"); //R1P = 1
+			state_test(1); //R1P = 1
 			
-			columns <= 4'b1111; //release key and wait
+			columns = 4'b1111; //release key and wait
 
 			#10;
 
-			columns <= 4'b1011; // test that next column works
+			columns = 4'b1011; // test that next column works
 
 			#10;
 			
 			row_test(rows, 4'b0100);
-			assert(dut.state == 2) else $error("wrong state"); //ROW2 = 2
+			state_test(2); //ROW2 = 2
 
 			#40; 
 			assert(value == 4'b0101) else $error("incorrect output %b", value);
-			assert(dut.state == 3) else $error("wrong state"); //R2P = 3
+			state_test(3); //R2P = 3
 
-			columns <= 4'b1111;
+			columns = 4'b1111;
 
 			#10;
 
 			// test that 3rd column works
-			columns <= 4'b1101;
+			columns = 4'b1101;
 
 			#10;
 			
 			row_test(rows, 4'b0010);
-			assert(dut.state == 4) else $error("wrong state"); //ROW3 = 4
+			state_test(4); //ROW3 = 4
 
 			#40; 
 			assert(value == 4'b1001) else $error("incorrect output %b", value);
-			assert(dut.state == 5) else $error("wrong state"); //R3P = 5;
+			state_test(5); //R3P = 5;
 
-			columns <= 4'b1111;
+			columns = 4'b1111;
 
 			#10;
 
 			// test that 4th column works
-			columns <= 4'b1110;
+			columns = 4'b1110;
 			#10;
 			
 			row_test(rows, 4'b0010);
-			assert(dut.state == 6) else $error("wrong state"); //ROW4 = 26
+			state_test(6); //ROW4 = 6
 
 			#40; 
 			assert(value == 4'b1101) else $error("incorrect output %b", value);
-			assert(dut.state == 7) else $error("wrong state"); //R4P = 7
+			state_test(7); //R4P = 7
+
+			$display("%d tests completed with %d errors", tests, errors);
 		
 		end
 	

@@ -10,7 +10,6 @@ module lab3_wc(input logic [3:0] columns,
 				output logic [1:0] anodes); 
 
     logic int_osc;
-    logic reset;
     logic enable; //FIGURE THESE TWO OUT
     logic [3:0] value1, value2, new_value;
     logic [15:0] clk_div;
@@ -23,7 +22,7 @@ module lab3_wc(input logic [3:0] columns,
         hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 
 
-    always_ff @(posedge clk) begin
+    always_ff @(posedge int_osc) begin
         clk_div <= clk_div + 1;
     end
 
@@ -61,7 +60,7 @@ module lab3_wc(input logic [3:0] columns,
     assign value1 = new_value; 
 
     // Write to the display
-    seg_disp_write sdw(.value1(value1), .value(value2), .clk(int_osc), seg_out, anodes);
+    seg_disp_write sdw(.value1(value1), .value(value2), .clk(int_osc), .seg_out(seg_out), .anodes(anodes));
 
 
 endmodule 

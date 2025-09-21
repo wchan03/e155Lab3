@@ -13,6 +13,7 @@ module debouncer_testbench();
 	// set up all necessary logic 
 	logic clk, reset, key_pressed;
 	logic [3:0] columns, sig_expected; 
+	integer tests, errors;
 
 	// test signal? 
 	
@@ -36,22 +37,27 @@ module debouncer_testbench();
 			#10;
 			reset = 0;
 			//#10;
+
+			//set up counters
+			tests = 0;
+			errors = 0;
 			
 			#20;
-			columns <= 4'b0001;
+			columns = 4'b0001;
 			//expected output
 			assert(sig_expected==4'b0001) else $error("no dice");
+			tests = tests + 1;
 			
 			#20;
-			columns <= 4'b0010;
+			columns = 4'b0010;
 			assert(sig_expected==4'b0010) else $error("no dice");
 			
 			#20;
-			columns <=4'b0100;
+			columns =4'b0100;
 			assert(sig_expected==4'b0100) else $error("no dice");
 			
 			#20;
-			columns <= 4'b1000;
+			columns = 4'b1000;
 			assert(sig_expected==4'b1000) else $error("no dice");
 			
 			

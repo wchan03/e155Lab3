@@ -14,84 +14,408 @@
 # // and may not be used in any way not expressly authorized by SISW.
 # //
 # Loading project lab3_testing
-# Compile of debouncer_testbench.sv failed with 4 errors.
-# Compile of key_decode_testbench.sv was successful.
-# Compile of lab3_testbench.sv failed with 6 errors.
-# Compile of lab3_wc_testbench.sv was successful.
-# Compile of scanner_testbench.sv failed with 1 errors.
-# Compile of debouncer.sv failed with 6 errors.
-# Compile of demux2_1.sv was successful.
-# Compile of key_decode.sv was successful.
-# Compile of lab3_wc.sv failed with 3 errors.
-# Compile of mux.sv was successful.
-# Compile of scanner.sv failed with 8 errors.
-# Compile of seg_disp_write.sv failed with 1 errors.
-# 12 compiles, 7 failed with 29 errors.
-vsim -gui work.key_decode_testbench
-# vsim -gui work.key_decode_testbench 
-# Start time: 15:34:54 on Sep 19,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# Loading sv_std.std
-# Loading work.key_decode_testbench(fast)
-run 800
-# Compile of key_decode_testbench.sv was successful.
-# Break key hit
-# Break in file C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv
-
-restart -f
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.key_decode_testbench(fast)
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
-# Loading work.key_decode_testbench(fast)
-
-
-
-
-
-
-
-
-
-
-
-
-
-restart -f
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
-# Loading work.key_decode_testbench(fast)
-run 30
-# Break key hit
-# Break in file C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv
-# Compile of key_decode_testbench.sv was successful.
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading sv_std.std
-# Loading work.key_decode_testbench(fast)
-run 30
-# Break key hit
-# Break in file C:/Users/wchan/Documents/GitHub/e155Lab3/fpga/sim/key_decode_testbench.sv
-quit -sim
-# End time: 15:48:02 on Sep 19,2025, Elapsed time: 0:13:08
-# Errors: 0, Warnings: 1
-# Compile of debouncer.sv failed with 2 errors.
-# Compile of debouncer.sv was successful.
-# Compile of debouncer_testbench.sv failed with 1 errors.
-# Compile of debouncer_testbench.sv failed with 1 errors.
-# Compile of debouncer_testbench.sv was successful.
 # Compile of debouncer_testbench.sv was successful.
 # Compile of key_decode_testbench.sv was successful.
-# Compile of lab3_testbench.sv failed with 6 errors.
+# Compile of lab3_testbench.sv was successful.
 # Compile of lab3_wc_testbench.sv was successful.
-# Compile of scanner_testbench.sv failed with 1 errors.
+# Compile of scanner_testbench.sv was successful.
 # Compile of debouncer.sv was successful.
 # Compile of demux2_1.sv was successful.
 # Compile of key_decode.sv was successful.
-# Compile of lab3_wc.sv failed with 2 errors.
+# Compile of lab3_wc.sv was successful.
 # Compile of mux.sv was successful.
 # Compile of scanner.sv was successful.
 # Compile of seg_disp_write.sv was successful.
-# 12 compiles, 3 failed with 9 errors.
+# 12 compiles, 0 failed with no errors.
+# Compile of key_decode_testbench.sv was successful.
+# Compile of key_decode_testbench.sv was successful.
+# Compile of key_decode_testbench.sv was successful.
+vsim -gui work.key_decode_testbench
+# vsim -gui work.key_decode_testbench 
+# Start time: 14:06:39 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+quit -sim
+# End time: 14:07:11 on Sep 21,2025, Elapsed time: 0:00:32
+# Errors: 0, Warnings: 9
+vsim -gui work.key_decode_testbench -voptargs=+acc -L iCE40UP
+# vsim -gui work.key_decode_testbench -voptargs="+acc" -L iCE40UP 
+# Start time: 14:07:29 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+add wave -position end  sim:/key_decode_testbench/r
+add wave -position end  sim:/key_decode_testbench/c
+run 250
+# ** Error: failed input 1000 1110 with output 0010
+#    Time: 10 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 29
+# ** Error: failed input 0010 1101 with output 0111
+#    Time: 100 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 85
+# ** Error: failed input 0010 1011 with output 0111
+#    Time: 110 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 91
+# ** Error: failed input 0010 0111 with output 0111
+#    Time: 120 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 97
+# ** Error: failed input 0001 1110 with output 0000
+#    Time: 130 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 104
+# ** Error: failed input 0001 1101 with output 1110
+#    Time: 140 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 110
+# ** Error: failed input 0001 1011 with output 1110
+#    Time: 150 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 116
+# ** Error: failed input 0001 0111 with output 1110
+#    Time: 160 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 122
+# xxxx tests completed with xxxx errors
+# Compile of key_decode_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+run 100
+# ** Error: failed input 1000 1110 with output 0010
+#    Time: 10 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 30
+# ** Error: failed input 0010 1101 with output 0111
+#    Time: 100 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 86
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+run 500
+# ** Error: failed input 1000 1110 with output 0010
+#    Time: 10 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 30
+# ** Error: failed input 0010 1101 with output 0111
+#    Time: 100 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 86
+# ** Error: failed input 0010 1011 with output 0111
+#    Time: 110 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 92
+# ** Error: failed input 0010 0111 with output 0111
+#    Time: 120 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 98
+# ** Error: failed input 0001 1110 with output 0000
+#    Time: 130 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 105
+# ** Error: failed input 0001 1101 with output 1110
+#    Time: 140 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 111
+# ** Error: failed input 0001 1011 with output 1110
+#    Time: 150 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 117
+# ** Error: failed input 0001 0111 with output 1110
+#    Time: 160 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 123
+# xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tests completed with xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx errors
+# Compile of key_decode_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+run 500
+# ** Error: failed input 1000 1110 with output 0010
+#    Time: 10 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 30
+# ** Error: failed input 0010 1101 with output 0111
+#    Time: 100 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 86
+# ** Error: failed input 0010 1011 with output 0111
+#    Time: 110 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 92
+# ** Error: failed input 0010 0111 with output 0111
+#    Time: 120 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 98
+# ** Error: failed input 0001 1110 with output 0000
+#    Time: 130 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 105
+# ** Error: failed input 0001 1101 with output 1110
+#    Time: 140 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 111
+# ** Error: failed input 0001 1011 with output 1110
+#    Time: 150 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 117
+# ** Error: failed input 0001 0111 with output 1110
+#    Time: 160 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 123
+# xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tests completed with xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx errors
+# Compile of key_decode_testbench.sv failed with 2 errors.
+# Compile of key_decode_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+run 500
+# ** Error: failed input 1000 1110 with output 0010
+#    Time: 10 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 32
+# ** Error: failed input 0010 1101 with output 0111
+#    Time: 100 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 88
+# ** Error: failed input 0010 1011 with output 0111
+#    Time: 110 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 94
+# ** Error: failed input 0010 0111 with output 0111
+#    Time: 120 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 100
+# ** Error: failed input 0001 1110 with output 0000
+#    Time: 130 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 107
+# ** Error: failed input 0001 1101 with output 1110
+#    Time: 140 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 113
+# ** Error: failed input 0001 1011 with output 1110
+#    Time: 150 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 119
+# ** Error: failed input 0001 0111 with output 1110
+#    Time: 160 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 125
+# 00000000000000000000000000010000 tests completed with xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx errors
+# Compile of key_decode_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+run 500
+# ** Error: failed input 1000 1110 with output 0010
+#    Time: 10 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 32
+# ** Error: failed input 0010 1101 with output 0111
+#    Time: 100 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 88
+# ** Error: failed input 0010 1011 with output 0111
+#    Time: 110 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 94
+# ** Error: failed input 0010 0111 with output 0111
+#    Time: 120 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 100
+# ** Error: failed input 0001 1110 with output 0000
+#    Time: 130 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 107
+# ** Error: failed input 0001 1101 with output 1110
+#    Time: 140 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 113
+# ** Error: failed input 0001 1011 with output 1110
+#    Time: 150 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 119
+# ** Error: failed input 0001 0111 with output 1110
+#    Time: 160 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 125
+#          16 tests completed with           x errors
+# Compile of key_decode_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+run 500
+# ** Error: failed input 1000 1110 with output 0010
+#    Time: 10 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 33
+# ** Error: failed input 0010 1101 with output 0111
+#    Time: 100 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 89
+# ** Error: failed input 0010 1011 with output 0111
+#    Time: 110 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 95
+# ** Error: failed input 0010 0111 with output 0111
+#    Time: 120 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 101
+# ** Error: failed input 0001 1110 with output 0000
+#    Time: 130 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 108
+# ** Error: failed input 0001 1101 with output 1110
+#    Time: 140 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 114
+# ** Error: failed input 0001 1011 with output 1110
+#    Time: 150 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 120
+# ** Error: failed input 0001 0111 with output 1110
+#    Time: 160 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 126
+#          16 tests completed with           8 errors
+# Compile of key_decode_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+run 500
+# ** Error: failed input 1000 1110 with output 0010
+#    Time: 20 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 33
+# ** Error: failed input 0010 1101 with output 0111
+#    Time: 110 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 89
+# ** Error: failed input 0010 1011 with output 0111
+#    Time: 120 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 95
+# ** Error: failed input 0010 0111 with output 0111
+#    Time: 130 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 101
+# ** Error: failed input 0001 1110 with output 0000
+#    Time: 140 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 108
+# ** Error: failed input 0001 1101 with output 1110
+#    Time: 150 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 114
+# ** Error: failed input 0001 1011 with output 1110
+#    Time: 160 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 120
+# ** Error: failed input 0001 0111 with output 1110
+#    Time: 170 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 126
+#          16 tests completed with           8 errors
+# Compile of key_decode_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+run 500
+# ** Error: failed input 0010 1101 with output 0111
+#    Time: 110 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 89
+# ** Error: failed input 0010 1011 with output 0111
+#    Time: 120 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 95
+# ** Error: failed input 0010 0111 with output 0111
+#    Time: 130 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 101
+# ** Error: failed input 0001 1110 with output 0000
+#    Time: 140 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 108
+# ** Error: failed input 0001 1101 with output 1110
+#    Time: 150 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 114
+# ** Error: failed input 0001 1011 with output 1110
+#    Time: 160 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 120
+# ** Error: failed input 0001 0111 with output 1110
+#    Time: 170 ns  Scope: key_decode_testbench File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv Line: 126
+#          16 tests completed with           7 errors
+# Compile of key_decode_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.key_decode_testbench(fast)
+# Loading work.key_decode(fast)
+run 500
+#          16 tests completed with           0 errors
+quit -sim
+# End time: 14:23:39 on Sep 21,2025, Elapsed time: 0:16:10
+# Errors: 0, Warnings: 2
+vsim -gui -voptargs=+acc -L iCE40UP work.debouncer_testbench
+# vsim -gui -voptargs="+acc" -L iCE40UP work.debouncer_testbench 
+# Start time: 14:23:49 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv(32): (vopt-7061) Variable 'state' driven in an always_ff block, may not be driven by any other process. See C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv(20).
+# ** Error (suppressible): C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv(36): (vopt-7061) Variable 'state' driven in an always_ff block, may not be driven by any other process. See C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv(20).
+# Optimization failed
+# ** Error: (vopt-2064) Compiler back-end code generation process terminated with code 12.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=1.
+# Error loading design
+# End time: 14:23:49 on Sep 21,2025, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 2
+vsim -gui -voptargs=+acc -L iCE40UP work.debouncer_testbench
+# vsim -gui -voptargs="+acc" -L iCE40UP work.debouncer_testbench 
+# Start time: 14:25:48 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv(32): (vopt-7061) Variable 'state' driven in an always_ff block, may not be driven by any other process. See C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv(20).
+# ** Error (suppressible): C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv(36): (vopt-7061) Variable 'state' driven in an always_ff block, may not be driven by any other process. See C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv(20).
+# Optimization failed
+# ** Error: (vopt-2064) Compiler back-end code generation process terminated with code 12.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=1.
+# Error loading design
+# End time: 14:25:49 on Sep 21,2025, Elapsed time: 0:00:01
+# Errors: 3, Warnings: 2
+# Compile of debouncer.sv was successful.
+vsim -gui -voptargs=+acc -L iCE40UP work.debouncer_testbench
+# vsim -gui -voptargs="+acc" -L iCE40UP work.debouncer_testbench 
+# Start time: 14:26:07 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Warning: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debouncer_testbench.sv(27): (vopt-2685) [TFMPC] - Too few port connections for 'dut'.  Expected 6, found 5.
+# ** Warning: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debouncer_testbench.sv(27): (vopt-2718) [TFMPC] - Missing connection for port 'sig_recieved'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
+# Loading sv_std.std
+# Loading work.debouncer_testbench(fast)
+# Loading work.debouncer(fast)
+add wave -position end  sim:/debouncer_testbench/key_pressed
+add wave -position end  sim:/debouncer_testbench/columns
+add wave -position end  sim:/debouncer_testbench/sig_expected
+run 800
+quit -sim
+# End time: 14:36:42 on Sep 21,2025, Elapsed time: 0:10:35
+# Errors: 0, Warnings: 5
+vsim -gui -voptargs=+acc -L iCE40UP work.scanner_testbench
+# vsim -gui -voptargs="+acc" -L iCE40UP work.scanner_testbench 
+# Start time: 14:36:59 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "scanner(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.scanner_testbench(fast)
+# Loading work.scanner(fast)
+# Loading work.debouncer(fast)
+# Compile of scanner_testbench.sv failed with 1 errors.
+# Compile of scanner_testbench.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.scanner_testbench(fast)
+# Loading work.scanner(fast)
+# Loading work.debouncer(fast)
+add wave -position end  sim:/scanner_testbench/key_pressed
+add wave -position end  sim:/scanner_testbench/columns
+add wave -position end  sim:/scanner_testbench/rows
+add wave -position end  sim:/scanner_testbench/value
+RUN 500
+# invalid command name "RUN"
+run 500
+add wave -position end  sim:/scanner_testbench/errors
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.scanner_testbench(fast)
+# Loading work.scanner(fast)
+# Loading work.debouncer(fast)
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer_testbench.sv was successful.
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of lab3_wc_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# 12 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/scanner_testbench.sv(133): (vopt-7063) Failed to find 'test_count' in hierarchical name 'test_count'.
+#         Region: scanner_testbench
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+run 500
+# No Design Loaded!
+vsim -gui -voptargs=+acc -L iCE40UP work.scanner_testbench
+# vsim -gui -voptargs="+acc" -L iCE40UP work.scanner_testbench 
+# Start time: 14:36:59 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/scanner_testbench.sv(133): (vopt-7063) Failed to find 'test_count' in hierarchical name 'test_count'.
+#         Region: scanner_testbench
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=2.
+# Error loading design
+# End time: 14:42:37 on Sep 21,2025, Elapsed time: 0:05:38
+# Errors: 2, Warnings: 3
+# Compile of scanner_testbench.sv was successful.
+vsim -gui -voptargs=+acc -L iCE40UP work.scanner_testbench
+# vsim -gui -voptargs="+acc" -L iCE40UP work.scanner_testbench 
+# Start time: 14:46:06 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "scanner(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.scanner_testbench(fast)
+# Loading work.scanner(fast)
+# Loading work.debouncer(fast)
+# Loading work.key_decode(fast)
+run 200
+quit -sim
+# End time: 14:55:35 on Sep 21,2025, Elapsed time: 0:09:29
+# Errors: 0, Warnings: 3
