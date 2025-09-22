@@ -18,7 +18,7 @@ module debouncer_testbench();
 	
 	// set up all necessary logic 
 	logic clk, reset, key_pressed;
-	logic [3:0] columns, sig_expected; 
+	logic [3:0] columns, sig_out; 
 	integer tests, errors;
 
 	// test signal? 
@@ -31,16 +31,34 @@ module debouncer_testbench();
 		end
 	
 	// instantiate DUT 
-	debouncer dut(.clk(clk), .reset(reset), .sig_in(columns), .key_pressed(key_pressed), .sig_out(sig_expected));
+	debouncer dut(.clk(clk), .reset(reset), .sig_in(columns), .key_pressed(key_pressed), .sig_out(sig_out));
 	
+	// Override the counter_done for simulation (MUCH shorter time)
+    // For 1MHz clock, 20 cycles = 20μs instead of 20ms
+    assign dut.counter_done = (dut.counter == 20);
+
+
+	task test_db(input logic [3:0] test_col);
+		begin
+			//pulse key_pressed
+			#400; key_pressed = 0; #400; key_pressed = 1; columns = test_col; #400;
+			assert(sig_out == test_col)
+			else begin
+				$error("no dice. expected output = %b & actual output = %b", test_col, sig_out);
+				errors = errors + 1;
+			end
+			tests = tests + 1;
+		end
+
+	endtask
 	//run tests
 	initial 
 		begin 
 			// pulse reset 
 			reset = 0; 
-			#10;
+			#100;
 			reset = 1;
-			#10;
+			#100;
 			reset = 0;
 			//#10;
 
@@ -48,26 +66,17 @@ module debouncer_testbench();
 			tests = 0;
 			errors = 0;
 			
-			#40;
-			key_pressed = 1;
-			columns = 4'b0001;
-			//expected output
-			assert(sig_expected==4'b0001) else $error("no dice. output = %b", sig_expected);
-			tests = tests + 1;
+			#400;
+
+			test_db(4'b0001);
+			test_db(4'b0010);
+			test_db(4'b0100);
+			test_db(4'b1000);
+
+			#400;
 			
-			#40;
-			columns = 4'b0010;
-			assert(sig_expected==4'b0010) else $error("no dice. output = %b", sig_expected);
-			
-			#40;
-			columns =4'b0100;
-			assert(sig_expected==4'b0100) else $error("no dice. output = %b", sig_expected);
-			
-			#40;
-			columns = 4'b1000;
-			assert(sig_expected==4'b1000) else $error("no dice. output = %b", sig_expected);
-			
+			$display("%d tests completed with %d errors", tests, errors);
 			
 		end
-	
+
 endmodule 

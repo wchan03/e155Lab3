@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.2.0.3.0
-Mapped on: Sun Sep 21 22:00:49 2025
+Mapped on: Mon Sep 22 15:26:22 2025
 
 Design Information
 ------------------
@@ -22,12 +22,13 @@ Command line:   map -pdc C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/
 Design Summary
 --------------
 
-   Number of slice registers:  74 out of  5280 (1%)
+   Number of slice registers:  76 out of  5280 (1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           132 out of  5280 (3%)
-      Number of logic LUT4s:              66
-      Number of inserted feedthru LUT4s:   4
-      Number of ripple logic:             31 (62 LUT4s)
+   Number of LUT4s:           155 out of  5280 (3%)
+      Number of logic LUT4s:              94
+      Number of inserted feedthru LUT4s:  16
+      Number of replicated LUT4s:          1
+      Number of ripple logic:             22 (44 LUT4s)
    Number of IO sites used:   18 out of 39 (46%)
       Number of IO sites used for general PIO: 18
       Number of IO sites used for I3C: 0 out of 2 (0%)
@@ -49,17 +50,16 @@ Design Summary
    Number of SPIs:             0 out of 2 (0%)
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             0 out of 1 (0%)
-   Number of Clocks:  2
-      Net int_osc: 37 loads, 37 rising, 0 falling (Driver: Pin
+   Number of Clocks:  1
+      Net int_osc: 67 loads, 67 rising, 0 falling (Driver: Pin
      hf_osc.osc_inst/CLKHF)
-      Net scannerFSM.scan_clk: 12 loads, 12 rising, 0 falling (Driver: Pin
-     scannerFSM.clk_div_209__i16/Q)
-   Number of Clock Enables:  2
+   Number of Clock Enables:  4
       Net VCC_net: 1 loads, 0 SLICEs
-      Net scannerFSM.n706: 4 loads, 4 SLICEs
-   Number of LSRs:  3
-      Pin reset: 4 loads, 4 SLICEs (Net: reset_c)
-      Net n703: 12 loads, 12 SLICEs
+      Net n758: 20 loads, 20 SLICEs
+      Net n702: 4 loads, 4 SLICEs
+      Net scannerFSM.debounceFSM.n710: 4 loads, 4 SLICEs
+   Number of LSRs:  1
+      Pin reset: 51 loads, 51 SLICEs (Net: reset_c)
 
                                     Page 1
 
@@ -69,18 +69,17 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-      Net scannerFSM.debounceFSM.n179: 11 loads, 11 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net n703: 12 loads
-      Net scannerFSM.debounceFSM.n179: 11 loads
-      Net scannerFSM.n75[1]: 11 loads
-      Net scannerFSM.debounced_value[0]: 10 loads
-      Net reset_c: 9 loads
-      Net scannerFSM.debounced_value[1]: 9 loads
-      Net scannerFSM.debounceFSM.state[0]: 9 loads
-      Net value1[0]: 8 loads
-      Net value1[1]: 8 loads
-      Net value1[2]: 8 loads
+      Net reset_c: 60 loads
+      Net scannerFSM.debounceFSM.n39: 23 loads
+      Net n758: 20 loads
+      Net scannerFSM.n22[1]: 12 loads
+      Net debounced_col[0]: 9 loads
+      Net debounced_col[1]: 8 loads
+      Net rows_c_2: 7 loads
+      Net sdw.value[0]: 7 loads
+      Net sdw.value[1]: 7 loads
+      Net sdw.value[2]: 7 loads
 
 
 
@@ -127,6 +126,7 @@ IO (PIO) Attributes
 | seg_out[4]          | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | seg_out[5]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
 
                                     Page 2
 
@@ -136,7 +136,6 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
-+---------------------+-----------+-----------+-------+-------+-----------+
 | seg_out[6]          | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | rows[0]             | OUTPUT    |           |       |       |           |
@@ -151,7 +150,7 @@ IO (PIO) Attributes (cont)
 Removed logic
 -------------
 
-Block hf_osc.vlo_inst was optimized away.
+Block i1 was optimized away.
 
 OSC Summary
 -----------
@@ -181,7 +180,8 @@ Run Time and Memory Usage
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 68 MB
-Checksum -- map: 4240ed14b6d4ec22131d225d712d6bb880662f1d
+Checksum -- map: a8552b99d8fcee1750112aa1425bd1d1a9e24e8e
+
 
 
 

@@ -12,6 +12,7 @@ module lab3_wc(input logic [3:0] columns,
     logic int_osc;
     logic enable;
     logic [3:0] value1, value2, new_value;
+    logic [3:0] debounced_col;
 
 
     // Set up clock 
@@ -38,13 +39,16 @@ module lab3_wc(input logic [3:0] columns,
     assign sync_col = sync_2;
 
     // scanning TODO: different (slower)does t clock?
-    scanner scannerFSM(.clk(int_osc), .reset(reset), .columns(sync_col), .rows(rows), .value(new_value), .enable(enable)); 
+    scanner scannerFSM(.clk(int_osc), .reset(reset), .columns(sync_col), .rows(rows), .debounced_col(debounced_col), .enable(enable)); 
 
-    // switch values
+
+    //decode value from row and column value
+    key_decode kd(rows, ~debounced_col, new_value); //~debounced_value because of the logic in key_decode    // switch values
+    
     always_ff @(posedge int_osc) begin
         if (reset) begin
-            value1 <= 4'b0000;
-            value2 <= 4'b0000;
+            value1 <= 4'b0100;
+            value2 <= 4'b0001;
         end
         else begin
             if(enable) begin //only update when a new value is recieved

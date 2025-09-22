@@ -1,65 +1,73 @@
 ----------------------------------------------------------------------
 Report for cell lab3_wc.TECH
-Register bits:  74 of 5280 (1.402%)
+Register bits:  76 of 5280 (1.439%)
 I/O cells:      18
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        31          100.0
-                            FD1P3XZ        74          100.0
+                               CCU2        22          100.0
+                            FD1P3XZ        76          100.0
                               HSOSC         1          100.0
                                  IB         5          100.0
-                               LUT4        65          100.0
+                               LUT4        93          100.0
                                  OB        13          100.0
 SUB MODULES
                           debouncer         1
                            demux2_1         1
                          key_decode         1
+                                mux         1
                             scanner         1
                      seg_disp_write         1
-                              TOTAL       194
-----------------------------------------------------------------------
-Report for cell scanner.v1
-Instance Path : scannerFSM
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2        20           64.5
-                            FD1P3XZ        54           73.0
-                               LUT4        56           86.2
-SUB MODULES
-                          debouncer         1
-                         key_decode         1
-                              TOTAL       132
+                              TOTAL       216
 ----------------------------------------------------------------------
 Report for cell key_decode.v1
-Instance Path : scannerFSM.kd
+Instance Path : kd
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4        21           32.3
-                              TOTAL        21
-----------------------------------------------------------------------
-Report for cell debouncer.v1
-Instance Path : scannerFSM.debounceFSM
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2        11           35.5
-                            FD1P3XZ        26           35.1
-                               LUT4        19           29.2
-                              TOTAL        56
+                               LUT4        22           23.7
+                              TOTAL        22
 ----------------------------------------------------------------------
 Report for cell seg_disp_write.v1
 Instance Path : sdw
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        11           35.5
-                            FD1P3XZ        20           27.0
-                               LUT4         8           12.3
+                                FA2        11           50.0
+                            FD1P3XZ        20           26.3
+                               LUT4        12           12.9
 SUB MODULES
                            demux2_1         1
-                              TOTAL        40
+                                mux         1
+                              TOTAL        45
+----------------------------------------------------------------------
+Report for cell mux.v1
+Instance Path : sdw.in
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         4            4.3
+                              TOTAL         4
 ----------------------------------------------------------------------
 Report for cell demux2_1.v1
 Instance Path : sdw.dm
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4         1            1.5
+                               LUT4         1            1.1
                               TOTAL         1
+----------------------------------------------------------------------
+Report for cell scanner.v1
+Instance Path : scannerFSM
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        11           50.0
+                            FD1P3XZ        40           52.6
+                               LUT4        53           57.0
+SUB MODULES
+                          debouncer         1
+                              TOTAL       105
+----------------------------------------------------------------------
+Report for cell debouncer.v1
+Instance Path : scannerFSM.debounceFSM
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        11           50.0
+                            FD1P3XZ        28           36.8
+                               LUT4        34           36.6
+                              TOTAL        73

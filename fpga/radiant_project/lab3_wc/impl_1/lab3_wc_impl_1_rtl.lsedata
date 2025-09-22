@@ -2,12 +2,11 @@
 
 <clocks>
     <clockitem name = "int_osc"  type = "net" />
-    <clockitem name = "scannerFSM/scan_clk"  type = "net" />
 </clocks>
 
 <!--
     //=============================================================
-    //  Number of Clocks processed: 2
+    //  Number of Clocks processed: 1
     //
     //  If a clock cannot be found in the top level pins section,
     //  that means it is an internal clock.

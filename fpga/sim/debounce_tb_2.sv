@@ -31,23 +31,28 @@ module debouncer_tb_2();
     assign dut.counter_done = (dut.counter == 20);
    
     // Test task
-    task test_debounce(input logic [3:0] test_sig, input logic test_press,
+    task test_debounce(input logic [3:0] test_sig, 
                        input integer press_cycles, input integer release_cycles,
                        input logic [3:0] expected, string test_name);
         begin
             sig_in = test_sig;
-            key_pressed = test_press;
+            key_pressed = 0;
            
             // Wait for specified number of clock cycles
             repeat(press_cycles) @(posedge clk);
            
+           /*
             if (test_press) begin
-                key_pressed = 0;
+                key_pressed = 1;
                 repeat(release_cycles) @(posedge clk);
             end
+            */
+
+            key_pressed = 1;
+            repeat(release_cycles) @(posedge clk);
            
             // Check output after allowing for debounce time
-            repeat(5) @(posedge clk);
+            repeat(30) @(posedge clk);
            
             if (sig_out !== expected) begin
                 $error("FAIL: %s - Expected %b, Got %b", test_name, expected, sig_out);
@@ -68,7 +73,7 @@ module debouncer_tb_2();
         sig_in = 4'b0000;
         key_pressed = 0;
        
-        $display("Starting debouncer tests with faster simulation timing...");
+        $display("Starting debouncer tests...");
         #1000;
        
         // Reset
@@ -78,25 +83,25 @@ module debouncer_tb_2();
        
         // Test 2: Short glitch (should be filtered out)
         $display("\n=== Test 2: Short glitch filtering ===");
-        test_debounce(4'b0001, 1, 5, 5, 4'b0000, "Short glitch filtered");
+        test_debounce(4'b0001, 5, 5, 4'b0000, "Short glitch filtered");
        
         // Test 3: Valid key press (long enough to debounce)
         $display("\n=== Test 3: Valid key press ===");
-        test_debounce(4'b0010, 1, 30, 30, 4'b0010, "Valid key press");
+        test_debounce(4'b0010, 5, 30, 4'b0010, "Valid key press");
        
         // Test 4: Multiple quick presses
         $display("\n=== Test 4: Multiple quick presses ===");
-        test_debounce(4'b0100, 1, 5, 5, 4'b0000, "Quick press 1 filtered");
+        test_debounce(4'b0100, 5, 5, 4'b0000, "Quick press 1 filtered");
         #1000;
-        test_debounce(4'b0101, 1, 5, 5, 4'b0000, "Quick press 2 filtered");
+        test_debounce(4'b0101, 5, 5, 4'b0000, "Quick press 2 filtered");
         #1000;
-        test_debounce(4'b0110, 1, 5, 5, 4'b0000, "Quick press 3 filtered");
+        test_debounce(4'b0110, 5, 5, 4'b0000, "Quick press 3 filtered");
        
         // Test 5: Edge case - exactly at debounce threshold
         $display("\n=== Test 5: Edge case ===");
-        test_debounce(4'b1000, 1, 19, 19, 4'b0000, "Just below threshold");
+        test_debounce(4'b1000, 19, 19, 4'b0000, "Just below threshold");
         #1000;
-        test_debounce(4'b1001, 1, 21, 21, 4'b1001, "Just above threshold");
+        test_debounce(4'b1001, 21, 21, 4'b1001, "Just above threshold");
        
         // Summary
         $display("\n=== TEST SUMMARY ===");

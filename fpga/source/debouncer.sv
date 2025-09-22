@@ -29,19 +29,19 @@ module debouncer(input logic clk, reset,
         else begin
             state <= nextstate; 
             if (state == DEBOUNCEUP || state == DEBOUNCEDOWN) begin // count at the waiting states
-                if (counter_done)
+                if (counter_done) //reset to 0 when the counter is done
                     counter <= 0;
                 else
-                    counter <= counter + 1;
+                    counter <= counter + 1; //otherwise, increment the counter
             end
-            else counter <= 0;
-            if(netxtstate == WAIT_HIGH && state == DEBOUNCEUP ) begin
+            if(nextstate == WAIT_HIGH && state == DEBOUNCEUP ) begin //only send out signal during change between states
                 sig_out <= sig_in;
             end
         end
     end
         
     // Counter done signal. for 20ms
+    //TODO: comment out when testing
     // For 48MHz clock: 48e6 * 0.020 = 960,000 cycles TODO: change this if you change scanner clock
     assign counter_done = (counter == 20'd960000); //counter >= 20'd960000
 
