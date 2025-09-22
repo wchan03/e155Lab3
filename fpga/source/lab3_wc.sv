@@ -20,43 +20,41 @@ module lab3_wc(input logic [3:0] columns,
         hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 
     //synchronizer: 2 flip flops to sync input signal 
-    // TODO: is this too complex? should i be testing this separately?
-    logic [3:0] q1, d1, q2, data;
-    //assign d1 = columns;
-    always_ff @(posedge int_osc, reset) begin 
+
+    logic [3:0] sync_1, sync_2, sync_col;
+
+    always_ff @(posedge int_osc or posedge reset) begin 
         if(reset) begin 
-                  q1 <= 4'b0000;
-                  q2 <= 4'b0000;
+                  sync_1 <= 4'b1111;
+                  sync_2 <= 4'b1111;
         end
-        else if(enable) begin 
-             q1 <= columns;
-             q2 <= q1;
+        else begin 
+             sync_1 <= columns;
+             sync_2 <= sync_1;
         end
-        else begin
-            q1 <= q1;
-            q2 <= q2;
-        end
-        data <= q2;
     end
 
-    // scanning TODO: different clock?
-    scanner scannerFSM(.clk(int_osc), .reset(reset), .columns(columns), .rows(rows), .value(new_value)); 
+    //use syncronized data 
+    assign sync_col = sync_2;
+
+    // scanning TODO: different (slower)does t clock?
+    scanner scannerFSM(.clk(int_osc), .reset(reset), .columns(sync_col), .rows(rows), .value(new_value), .enable(enable)); 
 
     // switch values
-    //TODO: should I be doing this every clock cycle?
-    //only do this if a button was pressed and a value was changed. add an enable to the scanner
-    assign value2 = value1;
-    assign value1 = new_value; 
+    always_ff @(posedge int_osc) begin
+        if (reset) begin
+            value1 <= 4'b0000;
+            value2 <= 4'b0000;
+        end
+        else begin
+            if(enable) begin //only update when a new value is recieved
+                value2 <= value1;
+                value1 <= new_value;
+            end
+        end
+    end
 
     // Write to the display
     seg_disp_write sdw(.value1(value1), .value2(value2), .clk(int_osc), .seg_out(seg_out), .anodes(anodes));
-
-    //right  now: flashing super quick, unless a button is pressed, in which case both disp show the same value
-    // only permits 7, 4, 1, and E. AKA-- only depends on the row, so just whatever stage it happens to be in at that moment
-
-	//when using flip flop instead of inside FSM to apply logic, only showing C (and 1 when reset is presse/held)
-	//no longer responding to key presses
-	
-
 
 endmodule 

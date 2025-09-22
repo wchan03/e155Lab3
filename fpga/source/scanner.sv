@@ -12,94 +12,106 @@ module scanner(input logic clk,
                 );
 
     //R1P = row 1 pressed
-    typedef enum logic [7:0] {ROW1, R1P, R1E, ROW2, R2P, R2E, ROW3, R3P, R3E, ROW4, R4P, R4E} //TODO: might need more lol
+    //for each row, ROW#, row # enabled, row # pressed
+    typedef enum logic [7:0] {ROW1, R1E, R1P, ROW2, R2E, R2P, ROW3, R3E, R3P, ROW4, R4E, R4P} //TODO: might need more lol
     statetype;
         statetype state, nextstate;
     
     // set up necessary internal logic
-    logic key_pressed_raw, key_pressed_debounced;
-    logic [3:0] column_data, debounced_value;
-    //logic [15:0] clk_div;
-    //logic scan_clk;
+    logic key_pressed, key_pressed_debounced; //DO I NEED ALL THESE VALUES?
+    logic [3:0] debounced_value;
 
-    assign key_pressed_raw = (columns != 4'b1111); //if any column is pressed
+    assign key_pressed = (columns != 4'b1111); //if any column is pressed
 
 
     // state register
 	always_ff @(posedge clk) begin
-		if (reset == 0) state <= ROW1;
+		if (reset) state <= ROW1;
 		else state <= nextstate;
 	end
 
     always_comb begin
-        nextstate = state;
-        rows <= 4'b0000; //initialize all rows to 0
         case(state)
             ROW1: begin
-                    rows <= 4'b1000;
-                    if(key_pressed_raw) nextstate = R1P;
+                    //rows <= 4'b1000; //should this happen OUTSIDE the fsm?
+                    if(key_pressed) nextstate = R1E;
                     else nextstate = ROW2;
                    end
+            R1E: begin 
+                    //rows <= 4'b1000;
+                    if(key_pressed) nextstate = R1P;
+                    else nextstate = ROW1;
+                end
             R1P: begin
-                    rows <= 4'b1000;
-                    if(key_pressed_raw) nextstate = R1P; // stay at this state until key is unpressed
+                    //rows <= 4'b1000;
+                    if(key_pressed) nextstate = R1P; // stay at this state until key is unpressed
+                    else nextstate = ROW1;
+                   end
+            ROW2: begin
+                    //rows <= 4'b0100;
+                    if(key_pressed) nextstate = R2E;
+                    else nextstate = ROW3;
+                   end
+            R2E: begin 
+                    //rows <= 4'b0100;
+                    if(key_pressed) nextstate = R2P;
+                    else nextstate = ROW2;
+                end
+            R2P: begin
+                    //rows <= 4'b0100;
+                    if(key_pressed) nextstate = R2P; // stay here until key is unpressed
                     else nextstate = ROW2;
                    end
-            R1E:
-            ROW2: begin
-                    rows <= 4'b0100;
-                    if(key_pressed_raw) nextstate = R2P;
-                    else nextstate = ROW3;
-                   end
-            R2P: begin
-                    rows <= 4'b0100;
-                    if(key_pressed_raw) nextstate = R2P; // stay here until key is unpressed
-                    else nextstate = ROW3;
-                   end
-            R2E:
             ROW3: begin
-                    rows <= 4'b0010;
-                    if(key_pressed_raw) nextstate = R3P;
+                    //rows <= 4'b0010;
+                    if(key_pressed) nextstate = R3E;
                     else nextstate = ROW4;
                    end
+            R3E: begin 
+                    //rows <= 4'b0010;
+                    if(key_pressed) nextstate = R3P;
+                    else nextstate = ROW3;
+                end
             R3P: begin
-                    rows <= 4'b0010;
-                    if(key_pressed_raw) nextstate = R3P; // stay here until key is unpressed
+                    //rows <= 4'b0010;
+                    if(key_pressed) nextstate = R3P; // stay here until key is unpressed
+                    else nextstate = ROW3;
+                   end
+            ROW4: begin
+                    //rows <= 4'b0001;
+                    if(key_pressed) nextstate = R4E;
+                    else nextstate = ROW1;
+                   end
+            R4E: begin 
+                    //rows <= 4'b0001;
+                    if(key_pressed) nextstate = R4P;
+                    else nextstate = ROW4;
+                end
+            R4P: begin
+                    //rows <= 4'b0001;
+                    if(key_pressed) nextstate = R4P; // stay here until key is unpressed
                     else nextstate = ROW4;
                    end
-            R3E:
-            ROW4: begin
-                    rows <= 4'b0001;
-                    if(key_pressed_raw) nextstate = R4P;
-                    else nextstate = ROW1;
-                   end
-            R4P: begin
-                    rows <= 4'b0001;
-                    if(key_pressed_raw) nextstate = R4P; // stay here until key is unpressed
-                    else nextstate = ROW1;
-                   end
-            R4E:
             default: nextstate = ROW1;
         endcase
     end
 
-    // Capture column data when key is pressed TODO: this is likely redundant 
-    always_ff @(posedge clk) begin
-        if (reset == 0) begin
-            column_data <= 4'b1111;
-        end else if (key_pressed_raw && !key_pressed_debounced) begin // is key_pressed_debounced necessary here?
-            column_data <= columns;  // Capture columns when key first pressed
-        end
-    end
 
-    //debouncer 
-    debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(column_data),
-                         .key_pressed(key_pressed_raw), .sig_out(debounced_value), .sig_recieved(key_pressed_debounced));
+    //assign row logic outside of the FSM? 
+    assign rows[3] = (state == ROW1) || (state == R1E) || (state == R1P);
+    assign rows[2] = (state == ROW2) || (state == R2E) || (state == R2P);
+    assign rows[1] = (state == ROW3) || (state == R3E) || (state == R3P);
+    assign rows[0] = (state == ROW4) || (state == R4E) || (state == R4P);
+
+    //debouncer TODO: move out of here??
+    debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(columns),
+                         .key_pressed(key_pressed_debounced), .sig_out(debounced_value));//, .sig_recieved(key_pressed_debounced));
 
 
     //decode value from row and column value
-    key_decode kd(rows, ~debounced_value, value); //TODO: need to flip bits of debounced_value?
+    key_decode kd(rows, ~debounced_value, value); //~debounced_value because of the logic in key_decode
 
-    assign enable = key_pressed_debounced; //figure out what to do with this
+    assign key_pressed_debounced = (state == R4P) || (state == R3P) || (state == R2P)|| (state == R1P); //access debouncer only in keypressedconfirmed states
+    assign enable = (state == R4E) || (state == R3E) || (state == R2E)|| (state == R1E); 
     
 endmodule

@@ -1,25 +1,18 @@
 // Wava Chan
 // wchan@g.hmc.edu
 // Sept. 13, 2025
-// TODO: Summary
+// Debounces input signal from keypad press
 
 module debouncer(input logic clk, reset,
                 input logic [3:0] sig_in, 
                 input logic key_pressed,
-                output logic [3:0] sig_out,
-				output logic sig_recieved); // do i do anything with this signal?
-
+                output logic [3:0] sig_out);
 
     // initialize state information
     typedef enum logic [3:0] {WAIT_LOW, DEBOUNCEUP, WAIT_HIGH, DEBOUNCEDOWN}
     statetype;
         statetype state, nextstate;
 
-    // register
-	//always_ff @(posedge clk) begin
-	//	if (reset) state <= WAIT_LOW;
-      //  else state <= nextstate;
-	//end
 
     //counter 
 
@@ -31,6 +24,7 @@ module debouncer(input logic clk, reset,
         if (reset) begin
             state <= WAIT_LOW; //reset to WAIT_LOW and counter to 0
             counter <= 0;
+            sig_out <= 4'b1111;
         end 
         else begin
             state <= nextstate; 
@@ -41,12 +35,15 @@ module debouncer(input logic clk, reset,
                     counter <= counter + 1;
             end
             else counter <= 0;
+            if(netxtstate == WAIT_HIGH && state == DEBOUNCEUP ) begin
+                sig_out <= sig_in;
+            end
         end
     end
         
     // Counter done signal. for 20ms
-    // For 48MHz clock: 48e6 * 0.020 = 960,000 cycles
-    assign counter_done = (counter == 20'd960000);
+    // For 48MHz clock: 48e6 * 0.020 = 960,000 cycles TODO: change this if you change scanner clock
+    assign counter_done = (counter == 20'd960000); //counter >= 20'd960000
 
            
     always_comb begin
@@ -57,38 +54,27 @@ module debouncer(input logic clk, reset,
                             else nextstate = WAIT_LOW;
                         end
 
-            DEBOUNCEUP: if(counter_done) begin 
+            DEBOUNCEUP: begin if(counter_done) begin 
                                     if (key_pressed) nextstate = WAIT_HIGH;
                                     else nextstate = WAIT_LOW;
-                        end 
+                                end 
+                            else nextstate=DEBOUNCEUP;
+                        end
             WAIT_HIGH: begin
                         if(!key_pressed)  nextstate = DEBOUNCEDOWN;
                         else nextstate = WAIT_HIGH;
-                        //sig_out <= sig_in;
                     end
-            DEBOUNCEDOWN:       if(counter_done) begin
+            DEBOUNCEDOWN:   begin if(counter_done) begin
                                     if(!key_pressed) nextstate = WAIT_LOW;
                                     else nextstate = WAIT_HIGH;
                                 end 
+                                else nextstate = DEBOUNCEUP;
+                            end
             default:    begin 
                             nextstate = WAIT_LOW;
-                            //sig_out <= 4'b0000;
             end 
         endcase
 
-    end
-
-    
-    always_ff @(posedge clk) begin //TODO: necessary to be in a flip flop?
-        if (reset) begin
-            sig_out <= 4'b1111;
-        end else if (state == WAIT_HIGH) begin//DEBOUNCEUP && counter_done && key_pressed) begin
-            sig_out <= sig_in;  // Capture the stable input
-        end
-    end
-    
-
-	assign sig_recieved = (state == WAIT_HIGH); //i feel like this is good to have. no reason why
-
+    end   
 
 endmodule
