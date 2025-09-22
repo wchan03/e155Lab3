@@ -44,6 +44,7 @@ module lab3_wc(input logic [3:0] columns,
 
     // switch values
     //TODO: should I be doing this every clock cycle?
+    //only do this if a button was pressed and a value was changed. add an enable to the scanner
     assign value2 = value1;
     assign value1 = new_value; 
 
@@ -52,7 +53,7 @@ module lab3_wc(input logic [3:0] columns,
 
     //right  now: flashing super quick, unless a button is pressed, in which case both disp show the same value
     // only permits 7, 4, 1, and E. AKA-- only depends on the row, so just whatever stage it happens to be in at that moment
-    
+
 	//when using flip flop instead of inside FSM to apply logic, only showing C (and 1 when reset is presse/held)
 	//no longer responding to key presses
 	

@@ -85,7 +85,6 @@ module debouncer(input logic clk, reset,
         end else if (state == WAIT_HIGH) begin//DEBOUNCEUP && counter_done && key_pressed) begin
             sig_out <= sig_in;  // Capture the stable input
         end
-        else sig_out <= 4'b0000;
     end
     
 
