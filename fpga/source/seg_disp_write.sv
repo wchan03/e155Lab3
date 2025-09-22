@@ -25,7 +25,7 @@ module seg_disp_write(input logic [3:0] value1, value2,
     assign select = counter[19];
 
     // Select input
-	mux2 in(value1, value2, select, value); 
+	mux in(value1, value2, select, value); 
 
     //segment calculation
     logic [6:0] seg_intm;

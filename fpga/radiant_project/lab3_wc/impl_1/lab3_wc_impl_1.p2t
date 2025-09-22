@@ -1,0 +1,9 @@
+-w
+-gui
+-msgset "C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_wc/promote.xml"
+-n 1
+-t 1
+-s 1
+-cores 1
+-hsp m
+-exp parPathBased=ON

@@ -1,45 +1,41 @@
 m255
 K4
 z2
-Z0 !s12c _opt1
+Z0 !s12c _opt2
 Z1 !s99 nomlopt
+Z2 !s12c _opt1
+R1
+R2
+R1
+R2
+R1
+Z3 !s12c _opt
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R3
+R1
+R3
+R1
+R3
+R1
+R3
+R1
 R0
-R1
-R0
-R1
-Z2 !s12c _opt
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R0
-R1
-R0
-R1
-R0
-R1
-R0
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-R2
-R1
-Z3 !s12c _opt2
 R1
 !s11e vcom 2024.2 2024.05, May 20 2024
-R0
-R1
-R0
-R1
-R0
-R1
 R2
 R1
 R2
@@ -52,21 +48,27 @@ R3
 R1
 R3
 R1
-R3
+R0
 R1
-R3
+R0
 R1
-R3
+R0
 R1
-R3
+R0
 R1
-R3
+R0
 R1
-R3
+R0
+R1
+R0
+R1
+R0
 R1
 R0
 R1
 R2
+R1
+R3
 R1
 !s11f vlog 2024.2 2024.05, May 20 2024
 13
@@ -79,85 +81,85 @@ Z4 dC:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_
 T_opt
 !s110 1758497466
 VnT50U?^L<LC:0cBd6EYoi1
-Z5 04 19 4 work debouncer_testbench fast 0
+04 19 4 work debouncer_testbench fast 0
 =5-00be43eaec61-68d08aba-141-47a4
 R1
-Z6 !s12f OEM25U2 
-Z7 !s12b OEM100
-Z8 !s124 OEM100
-Z9 !s135 nogc
-Z10 o-quiet -auto_acc_if_foreign -work work -L iCE40UP +acc
-Z11 tCvgOpt 0
+Z5 !s12f OEM25U2 
+Z6 !s12b OEM100
+Z7 !s124 OEM100
+Z8 !s135 nogc
+Z9 o-quiet -auto_acc_if_foreign -work work -L iCE40UP +acc
+Z10 tCvgOpt 0
 n@_opt
-Z12 OL;O;2024.2;79
+Z11 OL;O;2024.2;79
 R4
 T_opt1
 !s110 1758498879
 VBR@6cVz6_[c]XQn4Gbmc42
-04 14 4 work debouncer_tb_2 fast 0
+Z12 04 14 4 work debouncer_tb_2 fast 0
 =1-00be43eaec61-68d0903f-106-4020
 R1
+R5
 R6
 R7
 R8
 R9
 R10
-R11
 n@_opt1
-R12
+R11
+R4
 T_opt2
-!s110 1758495096
-V[c@eea;zlAI0[1dnYhAiY1
-R5
-=1-00be43eaec61-68d08178-de-32b0
+!s110 1758512839
+V8ES@6cc?l1nf<^BVh_LX_0
+R12
+=1-00be43eaec61-68d0c6c6-390-57c
 R1
+R5
 R6
 R7
 R8
-R9
 o-quiet -auto_acc_if_foreign -work work
-R11
+R10
 n@_opt2
-R12
-R4
+R11
 vdebouncer
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv
 Z13 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z14 !s110 1758498867
+Z14 !s110 1758511676
 !i10b 1
-!s100 ?`ZXi=;Wjo68TghFnTYZ;3
-I;<eHP?HUDlobZPlgBK95j3
+!s100 Rio`K?<Bi9T@V48B815e43
+IFoVPPmGEg=]VC3I@d0e9>3
 S1
 R4
-w1758498858
+w1758511667
 8C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv
 FC:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv
-!i122 121
+!i122 123
 L0 6 96
 Z15 VDg1SIo80bB@j0V0VzS_@n1
 Z16 OL;L;2024.2;79
 r1
 !s85 0
 31
-Z17 !s108 1758498867.000000
+Z17 !s108 1758511676.000000
 !s107 C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv|
 !i113 0
 Z18 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R11
+R10
 vdebouncer_tb_2
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debounce_tb_2.sv
 R13
 R14
 !i10b 1
-!s100 Y6[V1^<Y2?Fl=inA165]z1
-I4BAFe]MaiUnE7Kk=h;zh^1
+!s100 WWa`GA[g<7YCJ0f;RTBNI1
+I<ZU`NbX?jXP]n1_PJgXSO3
 S1
 R4
-w1758498820
+w1758511660
 8C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debounce_tb_2.sv
 FC:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debounce_tb_2.sv
-!i122 120
+!i122 122
 L0 8 115
 R15
 R16
@@ -169,7 +171,7 @@ R17
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debounce_tb_2.sv|
 !i113 0
 R18
-R11
+R10
 vdebouncer_testbench
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debouncer_testbench.sv
 R13
@@ -194,7 +196,7 @@ r1
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debouncer_testbench.sv|
 !i113 0
 R18
-R11
+R10
 vdemux2_1
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/demux2_1.sv
 R13
@@ -219,7 +221,7 @@ Z21 !s108 1758495088.000000
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/demux2_1.sv|
 !i113 0
 R18
-R11
+R10
 vkey_decode
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/key_decode.sv
 R13
@@ -244,7 +246,7 @@ R21
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/key_decode.sv|
 !i113 0
 R18
-R11
+R10
 vkey_decode_testbench
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv
 R13
@@ -269,7 +271,7 @@ Z23 !s108 1758495087.000000
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/key_decode_testbench.sv|
 !i113 0
 R18
-R11
+R10
 vlab3_testbench
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv
 R13
@@ -294,7 +296,7 @@ r1
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv|
 !i113 0
 R18
-R11
+R10
 vlab3_wc
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv
 R13
@@ -319,7 +321,7 @@ R21
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv|
 !i113 0
 R18
-R11
+R10
 vlab3_wc_testbench
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_wc_testbench.sv
 R13
@@ -344,7 +346,7 @@ R23
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_wc_testbench.sv|
 !i113 0
 R18
-R11
+R10
 vmux
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/mux.sv
 R13
@@ -369,32 +371,32 @@ R21
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/mux.sv|
 !i113 0
 R18
-R11
+R10
 vscanner
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/scanner.sv
 R13
-R19
+R14
 !i10b 1
 !s100 Nb>zOYVAfHRl[j3R4;MLA0
 I5fZ2IRhn5:kzRB6R]E=2h0
 S1
 R4
-w1758492921
+w1758511531
 8C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/scanner.sv
 FC:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/scanner.sv
-!i122 101
+!i122 124
 L0 6 102
 R15
 R16
 r1
 !s85 0
 31
-R21
+R17
 !s107 C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/scanner.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/scanner.sv|
 !i113 0
 R18
-R11
+R10
 vscanner_testbench
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/scanner_testbench.sv
 R13
@@ -419,7 +421,7 @@ R23
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/scanner_testbench.sv|
 !i113 0
 R18
-R11
+R10
 vseg_disp_write
 2C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv
 R13
@@ -444,4 +446,4 @@ R21
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv|
 !i113 0
 R18
-R11
+R10

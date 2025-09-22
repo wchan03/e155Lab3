@@ -46,15 +46,9 @@ module debouncer(input logic clk, reset,
         
     // Counter done signal. for 20ms
     // For 48MHz clock: 48e6 * 0.020 = 960,000 cycles
-    //assign counter_done = (counter == 20'd960000);
+    assign counter_done = (counter == 20'd960000);
 
-    //for testing purposes:
-    assign counter_done = (counter == 20'd20);
-
-    //logic [3:0] sig;
-
-
-            
+           
     always_comb begin
 
         case(state)
@@ -70,7 +64,7 @@ module debouncer(input logic clk, reset,
             WAIT_HIGH: begin
                         if(!key_pressed)  nextstate = DEBOUNCEDOWN;
                         else nextstate = WAIT_HIGH;
-                        sig_out <= sig_in;
+                        //sig_out <= sig_in;
                     end
             DEBOUNCEDOWN:       if(counter_done) begin
                                     if(!key_pressed) nextstate = WAIT_LOW;
@@ -78,13 +72,13 @@ module debouncer(input logic clk, reset,
                                 end 
             default:    begin 
                             nextstate = WAIT_LOW;
-                            sig_out <= 4'b0000;
+                            //sig_out <= 4'b0000;
             end 
         endcase
 
     end
 
-    /*
+    
     always_ff @(posedge clk) begin //TODO: necessary to be in a flip flop?
         if (reset) begin
             sig_out <= 4'b1111;
@@ -93,7 +87,7 @@ module debouncer(input logic clk, reset,
         end
         else sig_out <= 4'b0000;
     end
-    */
+    
 
 	assign sig_recieved = (state == WAIT_HIGH); //i feel like this is good to have. no reason why
 

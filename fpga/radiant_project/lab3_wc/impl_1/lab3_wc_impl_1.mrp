@@ -1,0 +1,208 @@
+
+                         Lattice Mapping Report File
+
+Design:  lab3_wc
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:  High-Performance_1.2V
+
+Mapper:    version Radiant Software (64-bit) 2024.2.0.3.0
+Mapped on: Sun Sep 21 22:00:49 2025
+
+Design Information
+------------------
+
+Command line:   map -pdc C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/
+     radiant_project/lab3_wc/pins.pdc -i lab3_wc_impl_1_syn.udb -o
+     lab3_wc_impl_1_map.udb -mp lab3_wc_impl_1.mrp -hierrpt -gui -msgset C:/User
+     s/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_wc/pro
+     mote.xml
+
+Design Summary
+--------------
+
+   Number of slice registers:  74 out of  5280 (1%)
+   Number of I/O registers:      0 out of   117 (0%)
+   Number of LUT4s:           132 out of  5280 (3%)
+      Number of logic LUT4s:              66
+      Number of inserted feedthru LUT4s:   4
+      Number of ripple logic:             31 (62 LUT4s)
+   Number of IO sites used:   18 out of 39 (46%)
+      Number of IO sites used for general PIO: 18
+      Number of IO sites used for I3C: 0 out of 2 (0%)
+      (note: If I3C is not used, its site can be used as general PIO)
+      Number of IO sites used for PIO+I3C: 18 out of 36 (50%)
+      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
+      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
+       see TN1288 iCE40 LED Driver Usage Guide)
+      Number of IO sites used for PIO+I3C+OD+RGB: 18 out of 39 (46%)
+   Number of DSPs:             0 out of 8 (0%)
+   Number of I2Cs:             0 out of 2 (0%)
+   Number of High Speed OSCs:  1 out of 1 (100%)
+   Number of Low Speed OSCs:   0 out of 1 (0%)
+   Number of RGB PWM:          0 out of 1 (0%)
+   Number of RGB Drivers:      0 out of 1 (0%)
+   Number of SCL FILTERs:      0 out of 2 (0%)
+   Number of SRAMs:            0 out of 4 (0%)
+   Number of WARMBOOTs:        0 out of 1 (0%)
+   Number of SPIs:             0 out of 2 (0%)
+   Number of EBRs:             0 out of 30 (0%)
+   Number of PLLs:             0 out of 1 (0%)
+   Number of Clocks:  2
+      Net int_osc: 37 loads, 37 rising, 0 falling (Driver: Pin
+     hf_osc.osc_inst/CLKHF)
+      Net scannerFSM.scan_clk: 12 loads, 12 rising, 0 falling (Driver: Pin
+     scannerFSM.clk_div_209__i16/Q)
+   Number of Clock Enables:  2
+      Net VCC_net: 1 loads, 0 SLICEs
+      Net scannerFSM.n706: 4 loads, 4 SLICEs
+   Number of LSRs:  3
+      Pin reset: 4 loads, 4 SLICEs (Net: reset_c)
+      Net n703: 12 loads, 12 SLICEs
+
+                                    Page 1
+
+
+
+
+
+Design Summary (cont)
+---------------------
+      Net scannerFSM.debounceFSM.n179: 11 loads, 11 SLICEs
+   Top 10 highest fanout non-clock nets:
+      Net n703: 12 loads
+      Net scannerFSM.debounceFSM.n179: 11 loads
+      Net scannerFSM.n75[1]: 11 loads
+      Net scannerFSM.debounced_value[0]: 10 loads
+      Net reset_c: 9 loads
+      Net scannerFSM.debounced_value[1]: 9 loads
+      Net scannerFSM.debounceFSM.state[0]: 9 loads
+      Net value1[0]: 8 loads
+      Net value1[1]: 8 loads
+      Net value1[2]: 8 loads
+
+
+
+
+
+   Number of warnings:  0
+   Number of criticals: 0
+   Number of errors:    0
+
+Design Errors/Criticals/Warnings
+--------------------------------
+
+   No error, critical, or warning presents.
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+-------+-------+-----------+
+| IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
+|                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
++---------------------+-----------+-----------+-------+-------+-----------+
+| reset               | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| columns[0]          | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| columns[1]          | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| columns[2]          | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| columns[3]          | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| anodes[0]           | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| anodes[1]           | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg_out[0]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg_out[1]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg_out[2]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg_out[3]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg_out[4]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg_out[5]          | OUTPUT    |           |       |       |           |
+
+                                    Page 2
+
+
+
+
+
+IO (PIO) Attributes (cont)
+--------------------------
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg_out[6]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rows[0]             | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rows[1]             | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rows[2]             | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rows[3]             | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+Removed logic
+-------------
+
+Block hf_osc.vlo_inst was optimized away.
+
+OSC Summary
+-----------
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            hf_osc.osc_inst
+  Power UP:                            NODE     VCC_net
+  Enable Signal:                       NODE     VCC_net
+  OSC Output:                          NODE     int_osc
+  DIV Setting:                                  01
+
+ASIC Components
+---------------
+
+Instance Name: hf_osc.osc_inst
+         Type: HFOSC
+
+Constraint Summary
+------------------
+
+   Total number of constraints: 18
+   Total number of constraints dropped: 0
+
+Run Time and Memory Usage
+-------------------------
+
+   Total CPU Time: 0 secs
+   Total REAL Time: 0 secs
+   Peak Memory Usage: 68 MB
+Checksum -- map: 4240ed14b6d4ec22131d225d712d6bb880662f1d
+
+
+
+
+
+
+
+
+
+
+
+
+                                    Page 3
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995
+     AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent
+     Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems
+     All rights reserved.
+Copyright (c) 2002-2024 Lattice Semiconductor
+     Corporation,  All rights reserved.

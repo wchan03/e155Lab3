@@ -1,0 +1,62 @@
+---------------------------------------------------
+Report for cell lab3_wc
+   Instance path: lab3_wc
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        132        100.0
+                               LUTGATE	         70        100.0
+                                LUTCCU	         62        100.0
+                                 IOBUF	         18        100.0
+                                PFUREG	         74        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                               scanner	          1        69.7
+                        seg_disp_write	          1        22.7
+---------------------------------------------------
+Report for cell scanner
+   Instance path: lab3_wc/scannerFSM
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         92        69.7
+                               LUTGATE	         52        74.3
+                                LUTCCU	         40        64.5
+                                PFUREG	         54        73.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                             debouncer	          1        30.3
+                            key_decode	          1        15.2
+---------------------------------------------------
+Report for cell key_decode
+   Instance path: lab3_wc/scannerFSM/kd
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         20        15.2
+                               LUTGATE	         20        28.6
+---------------------------------------------------
+Report for cell debouncer
+   Instance path: lab3_wc/scannerFSM/debounceFSM
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         40        30.3
+                               LUTGATE	         18        25.7
+                                LUTCCU	         22        35.5
+                                PFUREG	         26        35.1
+---------------------------------------------------
+Report for cell seg_disp_write
+   Instance path: lab3_wc/sdw
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         30        22.7
+                               LUTGATE	          8        11.4
+                                LUTCCU	         22        35.5
+                                PFUREG	         20        27.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                              demux2_1	          1         0.8
+---------------------------------------------------
+Report for cell demux2_1
+   Instance path: lab3_wc/sdw/dm
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          1         0.8
+                               LUTGATE	          1         1.4

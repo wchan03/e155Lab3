@@ -28,7 +28,7 @@ module debouncer_tb_2();
    
     // Override the counter_done for simulation (MUCH shorter time)
     // For 1MHz clock, 20 cycles = 20μs instead of 20ms
-    //assign dut.counter_done = (dut.counter == 20);
+    assign dut.counter_done = (dut.counter == 20);
    
     // Test task
     task test_debounce(input logic [3:0] test_sig, input logic test_press,
@@ -104,9 +104,9 @@ module debouncer_tb_2();
         $display("Errors: %0d", errors);
        
         if (errors == 0) begin
-            $display("✅ ALL DEBOUNCER TESTS PASSED!");
+            $display("ALL DEBOUNCER TESTS PASSED!");
         end else begin
-            $display("❌ %0d TESTS FAILED!", errors);
+            $display("%d TESTS FAILED!", errors);
         end
        
         #5000;

@@ -11,7 +11,7 @@ module scanner(input logic clk,
                 );
 
     //R1P = row 1 pressed
-    typedef enum logic [7:0] {ROW1, R1P, ROW2, R2P, ROW3, R3P, ROW4, R4P}
+    typedef enum logic [7:0] {ROW1, R1P, ROW2, R2P, ROW3, R3P, ROW4, R4P} //TODO: might need more lol
     statetype;
         statetype state, nextstate;
     
@@ -21,9 +21,9 @@ module scanner(input logic clk,
     logic [15:0] clk_div;
     logic scan_clk;
 
-    assign key_pressed_raw = (columns != 4'b1111); //active low columns
+    assign key_pressed_raw = (columns != 4'b1111); //if any column is pressed
 
-    //set up slower clock to scan at a slower rate
+    //set up slower clock to scan at a slower rate TODO: is this necessary?
     always_ff @(posedge clk) begin
         clk_div <= clk_div + 1;
     end
@@ -35,12 +35,10 @@ module scanner(input logic clk,
 		if (reset == 0) state <= ROW1;
 		else state <= nextstate;
 	end
-    
-
 
     always_comb begin
         nextstate = state;
-        rows = 4'b0000; //TODO: should the rows be written to a different way? i.e. 4'b1111
+        rows <= 4'b0000; //initialize all rows to 0
         case(state)
             ROW1: begin
                     rows <= 4'b1000;
@@ -90,7 +88,7 @@ module scanner(input logic clk,
     always_ff @(posedge scan_clk) begin
         if (reset == 0) begin
             column_data <= 4'b1111;
-        end else if (key_pressed_raw ) begin //&& !key_pressed_debounced
+        end else if (key_pressed_raw && !key_pressed_debounced) begin // is key_pressed_debounced necessary here?
             column_data <= columns;  // Capture columns when key first pressed
         end
     end
@@ -102,6 +100,7 @@ module scanner(input logic clk,
 
     //decode value from row and column value
     key_decode kd(rows, ~debounced_value, value); //TODO: need to flip bits of debounced_value?
-    assign key_valid = key_pressed_debounced;
+
+    //assign key_valid = key_pressed_debounced; figure out what to do with this
     
 endmodule
