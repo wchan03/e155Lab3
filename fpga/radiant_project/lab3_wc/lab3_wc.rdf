@@ -2,7 +2,7 @@
 <RadiantProject version="4.2" radiant="2024.2.0.3.0" title="lab3_wc" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" family_int="ice40tp" device_int="itpa08" package_int="SG48" operation_int="IND" speed_int="6" default_implementation="impl_1">
     <Options/>
     <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
-        <Options def_top="scanner_testbench"/>
+        <Options def_top="lab3_wc"/>
         <Source name="../../source/debouncer.sv" type="Verilog" type_short="Verilog">
             <Options VerilogStandard="System Verilog"/>
         </Source>
@@ -19,22 +19,28 @@
             <Options VerilogStandard="System Verilog"/>
         </Source>
         <Source name="../../source/seg_disp_write.sv" type="Verilog" type_short="Verilog">
-            <Options VerilogStandard="System Verilog" top_module="seg_disp_write"/>
+            <Options VerilogStandard="System Verilog"/>
         </Source>
         <Source name="../../source/lab3_wc.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog" top_module="lab3_wc"/>
+        </Source>
+        <Source name="../../sim/lab3_wc_testbench.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
             <Options VerilogStandard="System Verilog"/>
         </Source>
-        <Source name="../../sim/lab3_wc_testbench.sv" type="Verilog" type_short="Verilog">
+        <Source name="../../sim/debouncer_testbench.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
             <Options VerilogStandard="System Verilog"/>
         </Source>
-        <Source name="../../sim/debouncer_testbench.sv" type="Verilog" type_short="Verilog">
-            <Options VerilogStandard="System Verilog" top_module="debouncer_testbench"/>
+        <Source name="../../sim/key_decode_testbench.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
+            <Options VerilogStandard="System Verilog"/>
         </Source>
-        <Source name="../../sim/key_decode_testbench.sv" type="Verilog" type_short="Verilog">
-            <Options VerilogStandard="System Verilog" top_module="key_decode_testbench"/>
+        <Source name="../../sim/scanner_testbench.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
+            <Options VerilogStandard="System Verilog"/>
         </Source>
-        <Source name="../../sim/scanner_testbench.sv" type="Verilog" type_short="Verilog">
-            <Options VerilogStandard="System Verilog" top_module="scanner_testbench"/>
+        <Source name="pins.pdc" type="Physical Constraints File" type_short="PDC">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
         </Source>
     </Implementation>
     <Strategy name="Strategy1" file="lab3_wc1.sty"/>

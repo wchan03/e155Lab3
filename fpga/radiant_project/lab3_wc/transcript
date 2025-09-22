@@ -28,3 +28,5 @@ vsim -gui work.debouncer_tb_2
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
 # Loading sv_std.std
 # Loading work.debouncer_tb_2(fast)
+# End time: 22:47:02 on Sep 21,2025, Elapsed time: 1:59:44
+# Errors: 0, Warnings: 4
