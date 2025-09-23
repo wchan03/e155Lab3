@@ -12,8 +12,8 @@ module lab3_wc(input logic [3:0] columns,
     logic int_osc;
     logic enable;
     logic clk;
-    logic [3:0] value1, value2, new_value;
-    logic [3:0] debounced_value;
+    logic [7:0] value1, value2, new_value;
+    logic [7:0] debounced_value;
     logic [7:0] total_val;
 
 
@@ -28,9 +28,9 @@ module lab3_wc(input logic [3:0] columns,
 
     //synchronizer: 2 flip flops to sync input signal 
     // TODO: sync reset???? would need another double flip flop
-
+    
     logic [3:0] sync_1, sync_2, sync_col;
-
+    /*
     always_ff @(posedge clk) begin 
         if(!reset) begin 
                   sync_1 <= 4'b1111;
@@ -41,27 +41,39 @@ module lab3_wc(input logic [3:0] columns,
              sync_2 <= sync_1;
         end
     end
+    */
+    always_ff @(posedge clk) begin //not transferring values??
+        
+             sync_1 <= columns;
+             sync_2 <= sync_1;
+
+    end
 
     //use syncronized data 
     assign sync_col = sync_2;
+    
 
     assign key_pressed = (sync_col!= 4'b1111); //if any column is pressed
+    //assign key_pressed = (columns != 4'b1111);
 
-    debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(sync_columns),
-                         .key_pressed(key_pressed), .sig_out(debounced_value));
+    //debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(sync_col),
+    //                     .key_pressed(key_pressed), .sig_out(debounced_value));
     
     //logic debounced_key_pressed;
     //assign debounced_key_pressed = (debounced_value != 4'b1111);
     //do i want the debounced column into the scanner or the scanner into the debouncer?
 
     // scanning TODO: does enable work the way i want it to?
-    scanner scannerFSM(.clk(clk), .reset(reset), .columns(columns), .key_pressed(key_pressed), .rows(rows), .total_val(total_val), .enable(enable)); //.debounced_col(debounced_col),
+    scanner scannerFSM(.clk(clk), .reset(reset), .columns(sync_col), .key_pressed(key_pressed), //inputs
+                        .rows(rows), .total_val(total_val), .enable(enable)); //outputs
 
+    debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(total_val),
+                         .key_pressed(key_pressed), .sig_out(debounced_value));
    //.columns(columns works)
 
     //decode value from row and column values
     //key_decode kd(.r(rows), .c(debounced_value), .value(new_value)); 
-    key_decode kd(total_val, new_value);
+    key_decode kd(debounced_value, new_value);
     
     always_ff @(posedge clk) begin
         if (!reset) begin

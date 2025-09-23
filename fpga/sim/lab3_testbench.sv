@@ -42,10 +42,10 @@ module lab3_testbench();
 		value2 = dut.value2;
 
         // Initialize
-        reset = 1;
+        reset = 0;
         columns = 4'b1111; // no key pressed
         repeat (5) @(posedge dut.clk);
-        reset = 0;
+        reset = 1;
 
         // Case 1: simulate pressing column 0
         $display("Press key at column[0]");

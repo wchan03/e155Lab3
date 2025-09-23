@@ -39,11 +39,11 @@ module scanner_tb;
     task test_reset;
         begin
             $display("=== Testing Reset ===");
-            reset = 1;
+            reset = 0;
             columns = 4'b1111; // No keys pressed
             key_pressed = 0;
             #20;
-            reset = 0;
+            reset = 1;
             #10;
             // After reset, should start scanning from row 1
             if (rows === 4'b1000)

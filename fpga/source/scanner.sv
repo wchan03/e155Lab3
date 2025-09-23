@@ -17,12 +17,6 @@ module scanner(input logic clk,
     typedef enum logic [7:0] {ROW1, R1E, R1P, ROW2, R2E, R2P, ROW3, R3E, R3P, ROW4, R4E, R4P} //TODO: might need more lol
     statetype;
         statetype state, nextstate;
-    
-    // set up necessary internal logic
-    //logic key_pressed, key_pressed_debounced; //DO I NEED ALL THESE VALUES?
-    logic [3:0] debounced_value;
-
-    //assign key_pressed = (columns != 4'b1111); //if any column is pressed
 
 
     // state register
@@ -81,7 +75,7 @@ module scanner(input logic clk,
                     if(key_pressed) nextstate = R4P; // stay here until key is unpressed
                     else nextstate = ROW4;
                    end
-            default: nextstate = ROW1;
+            default: nextstate = ROW2;
         endcase
     end
 
