@@ -1,3 +1,8 @@
+//Wava Chan
+// wchan@g.hmc.edu
+// Sept. 15, 2025
+// Testbench for debouncer module
+
 `timescale 1ns/1ps
 
 module debouncer_tb();
@@ -20,29 +25,17 @@ module debouncer_tb();
         .sig_out(sig_out)
     );
 
-    // ------------------------
     // Clock generation: 10 ns period = 100 MHz
-    // ------------------------
     initial clk = 0;
     always #5 clk = ~clk;  
 
-    // ------------------------
     // Override counter_done for simulation
     // (this replaces the 960000 cycle wait with 20 cycles)
-    // ------------------------
-    // force is a testbench trick: it overrides internal nets
     initial begin
         force dut.counter_done = (dut.counter == 20);
     end
 
-    // ------------------------
-    // Stimulus
-    // ------------------------
     initial begin
-        // Dump waves if using a simulator with VCD
-        $dumpfile("debouncer_tb.vcd");
-        $dumpvars(0, debouncer_tb);
-
         // Initialize
         reset = 1;
         sig_in = 4'b0000;
