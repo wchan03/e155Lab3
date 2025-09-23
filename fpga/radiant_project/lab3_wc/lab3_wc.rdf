@@ -13,7 +13,7 @@
             <Options VerilogStandard="System Verilog"/>
         </Source>
         <Source name="../../source/mux.sv" type="Verilog" type_short="Verilog">
-            <Options VerilogStandard="System Verilog" top_module="mux"/>
+            <Options VerilogStandard="System Verilog"/>
         </Source>
         <Source name="../../source/scanner.sv" type="Verilog" type_short="Verilog">
             <Options VerilogStandard="System Verilog"/>
@@ -34,6 +34,9 @@
             <Options VerilogStandard="System Verilog"/>
         </Source>
         <Source name="../../sim/scanner_testbench.sv" type="Verilog" type_short="Verilog" excluded="TRUE">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../source/clk_div.sv" type="Verilog" type_short="Verilog">
             <Options VerilogStandard="System Verilog"/>
         </Source>
         <Source name="pins.pdc" type="Physical Constraints File" type_short="PDC">

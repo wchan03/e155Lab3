@@ -42,8 +42,8 @@ module debouncer(input logic clk, reset,
         
     // Counter done signal. for 20ms
     //TODO: comment out when testing
-    // For 48MHz clock: 48e6 * 0.020ms = 5 cycles TODO: change this if you change scanner clock
-    assign counter_done = (counter >= 20'd1200); 
+    // For 80Hz clock: 80 * 0.020ms = 1.6? TODO: change this if you change scanner clock
+    assign counter_done = (counter >= 20'd8); 
 
            
     always_comb begin

@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.2.0.3.0
-Mapped on: Tue Sep 23 00:26:46 2025
+Mapped on: Tue Sep 23 12:02:57 2025
 
 Design Information
 ------------------
@@ -24,9 +24,9 @@ Design Summary
 
    Number of slice registers:  77 out of  5280 (1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           155 out of  5280 (3%)
-      Number of logic LUT4s:              95
-      Number of inserted feedthru LUT4s:  16
+   Number of LUT4s:           158 out of  5280 (3%)
+      Number of logic LUT4s:             102
+      Number of inserted feedthru LUT4s:  12
       Number of ripple logic:             22 (44 LUT4s)
    Number of IO sites used:   18 out of 39 (46%)
       Number of IO sites used for general PIO: 18
@@ -53,13 +53,13 @@ Design Summary
       Net clk: 56 loads, 56 rising, 0 falling (Driver: Pin ck.counter_i23/Q)
       Net int_osc: 11 loads, 11 rising, 0 falling (Driver: Pin
      hf_osc.osc_inst/CLKHF)
-   Number of Clock Enables:  4
+   Number of Clock Enables:  3
       Net VCC_net: 1 loads, 0 SLICEs
-      Net n661: 4 loads, 4 SLICEs
-      Net debounceFSM.n671: 4 loads, 4 SLICEs
-      Net n716: 20 loads, 20 SLICEs
+      Net n664: 4 loads, 4 SLICEs
+      Net n709: 20 loads, 20 SLICEs
    Number of LSRs:  1
-      Net sync_col_0__N_28: 50 loads, 50 SLICEs
+      Net n325: 46 loads, 46 SLICEs
+   Top 10 highest fanout non-clock nets:
 
                                     Page 1
 
@@ -69,14 +69,13 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-   Top 10 highest fanout non-clock nets:
-      Net sync_col_0__N_28: 50 loads
-      Net debounceFSM.counter_done: 26 loads
-      Net n716: 20 loads
+      Net n325: 46 loads
+      Net counter_done: 28 loads
+      Net n709: 20 loads
       Net n164: 18 loads
-      Net reset_c: 10 loads
-      Net debounced_value[0]: 9 loads
-      Net debounced_value[1]: 8 loads
+      Net reset_c: 13 loads
+      Net debounced_value[0]: 10 loads
+      Net debounced_value[1]: 9 loads
       Net sdw.value[0]: 7 loads
       Net sdw.value[1]: 7 loads
       Net sdw.value[3]: 7 loads
@@ -127,6 +126,7 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+-------+-------+-----------+
 | seg_out[5]          | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
+| seg_out[6]          | OUTPUT    |           |       |       |           |
 
                                     Page 2
 
@@ -136,7 +136,6 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
-| seg_out[6]          | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | rows[0]             | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -180,7 +179,8 @@ Run Time and Memory Usage
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 68 MB
-Checksum -- map: 628dcdb440734ac7d14b0dfa932ccf8a485c2250
+Checksum -- map: a315e116c069eeb5d2c8e206bc7bab07d565ca21
+
 
 
 

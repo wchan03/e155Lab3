@@ -3514,3 +3514,5 @@ run 2000000000000
 #    Time: 221559913008 ps  Iteration: 3  Instance: /lab3_testbench
 # 1
 # Break in Module lab3_testbench at C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv line 66
+# End time: 00:29:33 on Sep 23,2025, Elapsed time: 2:51:20
+# Errors: 0, Warnings: 2

@@ -9,7 +9,7 @@ module clk_div(input logic orig_clk, output logic new_clk);
 
 
     always_ff @(posedge orig_clk) begin
-        counter <= counter + 23'd28; //TODO: double check frequency here
+        counter <= counter + 23'd28; //roughly 80Hz
     end
 
     assign new_clk = counter[22];
