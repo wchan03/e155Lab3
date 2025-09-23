@@ -19,7 +19,7 @@ module scanner(input logic clk,
     
     // set up necessary internal logic
     logic key_pressed, key_pressed_debounced; //DO I NEED ALL THESE VALUES?
-    //logic [3:0] debounced_value;
+    logic [3:0] debounced_value;
 
     assign key_pressed = (columns != 4'b1111); //if any column is pressed
 
@@ -93,12 +93,12 @@ module scanner(input logic clk,
 
     //debouncer TODO: move out of here??
     debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(columns),
-                         .key_pressed(key_pressed_debounced), .sig_out(debounced_col));
+                         .key_pressed(key_pressed_debounced), .sig_out(debounced_value));
 
 
     //decode value from row and column value
     //key_decode kd(rows, ~debounced_value, value); //~debounced_value because of the logic in key_decode
-
+    assign debounced_col = debounced_value;
     assign key_pressed_debounced = (state == R4P) || (state == R3P) || (state == R2P)|| (state == R1P); //access debouncer only in keypressedconfirmed states
     assign enable = (state == R4E) || (state == R3E) || (state == R2E)|| (state == R1E); 
     

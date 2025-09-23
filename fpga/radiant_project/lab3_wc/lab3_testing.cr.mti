@@ -75,6 +75,13 @@ Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 Top level modules:
 	key_decode_testbench
 
+} {} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debouncer_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/debouncer_tb.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module debouncer_tb
+
+Top level modules:
+	debouncer_tb
+
 } {} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/demux2_1.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/demux2_1.sv
 Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling module demux2_1
