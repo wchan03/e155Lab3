@@ -30,8 +30,8 @@ module lab3_wc(input logic [3:0] columns,
 
     logic [3:0] sync_1, sync_2, sync_col;
 
-    always_ff @(posedge clk, posedge reset) begin 
-        if(reset) begin 
+    always_ff @(posedge clk, negedge reset) begin 
+        if(reset == 0) begin 
                   sync_1 <= 4'b1111;
                   sync_2 <= 4'b1111;
         end
@@ -59,7 +59,7 @@ module lab3_wc(input logic [3:0] columns,
     key_decode kd(total_val, new_value); 
     
     always_ff @(posedge clk) begin
-        if (reset) begin
+        if (reset ==0) begin
             value1 <= 4'b0110;
             value2 <= 4'b0001;
         end
@@ -78,6 +78,5 @@ module lab3_wc(input logic [3:0] columns,
     // Write to the display TODO: clock values here?
     seg_disp_write sdw(.value1(value1), .value2(value2), .clk(clk), .seg_out(seg_out), .anodes(anodes));
 
-    //TODO
 
 endmodule 

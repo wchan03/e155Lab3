@@ -8,7 +8,7 @@ I/O cells:      18
                             FD1P3XZ        77          100.0
                               HSOSC         1          100.0
                                  IB         5          100.0
-                               LUT4        93          100.0
+                               LUT4        94          100.0
                                  OB        13          100.0
 SUB MODULES
                             clk_div         1
@@ -18,21 +18,37 @@ SUB MODULES
                                 mux         1
                             scanner         1
                      seg_disp_write         1
-                              TOTAL       218
+                              TOTAL       219
 ----------------------------------------------------------------------
 Report for cell scanner.v1
 Instance Path : scannerFSM
                                   Cell usage:
                                cell     count   Res Usage(%)
                             FD1P3XZ        12           15.6
-                               LUT4        17           18.3
-                              TOTAL        29
+                               LUT4        18           19.1
+                              TOTAL        30
+----------------------------------------------------------------------
+Report for cell debouncer.v1
+Instance Path : debounceFSM
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        11           50.0
+                            FD1P3XZ        28           36.4
+                               LUT4        35           37.2
+                              TOTAL        74
+----------------------------------------------------------------------
+Report for cell key_decode.v1
+Instance Path : kd
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        22           23.4
+                              TOTAL        22
 ----------------------------------------------------------------------
 Report for cell seg_disp_write.v1
 Instance Path : sdw
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4        12           12.9
+                               LUT4        12           12.8
 SUB MODULES
                            demux2_1         1
                                 mux         1
@@ -52,15 +68,6 @@ Instance Path : sdw.dm
                                LUT4         1            1.1
                               TOTAL         1
 ----------------------------------------------------------------------
-Report for cell debouncer.v1
-Instance Path : debounceFSM
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                                FA2        11           50.0
-                            FD1P3XZ        28           36.4
-                               LUT4        36           38.7
-                              TOTAL        75
-----------------------------------------------------------------------
 Report for cell clk_div.v1
 Instance Path : ck
                                   Cell usage:
@@ -68,10 +75,3 @@ Instance Path : ck
                                 FA2        11           50.0
                             FD1P3XZ        21           27.3
                               TOTAL        32
-----------------------------------------------------------------------
-Report for cell key_decode.v1
-Instance Path : kd
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               LUT4        22           23.7
-                              TOTAL        22

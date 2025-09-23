@@ -1,11 +1,4 @@
-C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/scanner.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/scanner.sv
-Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
--- Compiling module scanner
-
-Top level modules:
-	scanner
-
-} {} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/clk_div.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/clk_div.sv
+C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/clk_div.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/clk_div.sv
 Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling module clk_div
 
@@ -95,12 +88,5 @@ Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 
 Top level modules:
 	demux2_1
-
-} {} {}} C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/debouncer.sv
-Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
--- Compiling module debouncer
-
-Top level modules:
-	debouncer
 
 } {} {}}

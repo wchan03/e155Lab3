@@ -21,7 +21,7 @@ module debouncer(input logic clk, reset,
     
     // Register
     always_ff @(posedge clk) begin
-        if (reset) begin
+        if (reset == 0) begin
             state <= WAIT_LOW; //reset to WAIT_LOW and counter to 0
             counter <= 0;
             sig_out <= 4'b1111;
@@ -43,7 +43,7 @@ module debouncer(input logic clk, reset,
     // Counter done signal. for 20ms
     //TODO: comment out when testing
     // For 48MHz clock: 48e6 * 0.020ms = 5 cycles TODO: change this if you change scanner clock
-    assign counter_done = (counter >= 20'd5); 
+    assign counter_done = (counter >= 20'd1200); 
 
            
     always_comb begin

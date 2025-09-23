@@ -3,33 +3,49 @@ Report for cell lab3_wc
    Instance path: lab3_wc
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	        154        100.0
-                               LUTGATE	        110        100.0
+                                  LUT4	        155        100.0
+                               LUTGATE	        111        100.0
                                 LUTCCU	         44        100.0
                                  IOBUF	         18        100.0
                                 PFUREG	         77        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-                               clk_div	          1        14.3
-                             debouncer	          1        37.7
-                            key_decode	          1        13.0
-                               scanner	          1        11.0
-                        seg_disp_write	          1         7.8
+                               clk_div	          1        14.2
+                             debouncer	          1        36.8
+                            key_decode	          1        12.9
+                               scanner	          1        11.6
+                        seg_disp_write	          1         7.7
 ---------------------------------------------------
 Report for cell scanner
    Instance path: lab3_wc/scannerFSM
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         17        11.0
-                               LUTGATE	         17        15.5
+                                  LUT4	         18        11.6
+                               LUTGATE	         18        16.2
                                 PFUREG	         12        15.6
+---------------------------------------------------
+Report for cell debouncer
+   Instance path: lab3_wc/debounceFSM
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         57        36.8
+                               LUTGATE	         35        31.5
+                                LUTCCU	         22        50.0
+                                PFUREG	         28        36.4
+---------------------------------------------------
+Report for cell key_decode
+   Instance path: lab3_wc/kd
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         20        12.9
+                               LUTGATE	         20        18.0
 ---------------------------------------------------
 Report for cell seg_disp_write
    Instance path: lab3_wc/sdw
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         12         7.8
-                               LUTGATE	         12        10.9
+                                  LUT4	         12         7.7
+                               LUTGATE	         12        10.8
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
                               demux2_1	          1         0.6
@@ -49,26 +65,10 @@ Report for cell demux2_1
                                   LUT4	          1         0.6
                                LUTGATE	          1         0.9
 ---------------------------------------------------
-Report for cell debouncer
-   Instance path: lab3_wc/debounceFSM
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         58        37.7
-                               LUTGATE	         36        32.7
-                                LUTCCU	         22        50.0
-                                PFUREG	         28        36.4
----------------------------------------------------
 Report for cell clk_div
    Instance path: lab3_wc/ck
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         22        14.3
+                                  LUT4	         22        14.2
                                 LUTCCU	         22        50.0
                                 PFUREG	         21        27.3
----------------------------------------------------
-Report for cell key_decode
-   Instance path: lab3_wc/kd
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         20        13.0
-                               LUTGATE	         20        18.2

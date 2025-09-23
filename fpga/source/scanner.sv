@@ -27,7 +27,7 @@ module scanner(input logic clk,
 
     // state register
 	always_ff @(posedge clk) begin
-		if (reset) state <= ROW1;
+		if (reset == 0) state <= ROW1;
 		else state <= nextstate;
 	end
 
