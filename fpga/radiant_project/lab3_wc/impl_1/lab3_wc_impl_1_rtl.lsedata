@@ -1,8 +1,8 @@
 <top name = "lab3_wc"  library = "work"  arch = ""  entry = "Verilog">
 
 <clocks>
-    <clockitem name = "int_osc"  type = "net" />
     <clockitem name = "clk"  type = "net" />
+    <clockitem name = "int_osc"  type = "net" />
 </clocks>
 
 <!--

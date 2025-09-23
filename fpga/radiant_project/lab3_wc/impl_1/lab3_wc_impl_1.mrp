@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.2.0.3.0
-Mapped on: Tue Sep 23 00:26:46 2025
+Mapped on: Tue Sep 23 15:57:15 2025
 
 Design Information
 ------------------
@@ -24,8 +24,8 @@ Design Summary
 
    Number of slice registers:  77 out of  5280 (1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           155 out of  5280 (3%)
-      Number of logic LUT4s:              95
+   Number of LUT4s:           156 out of  5280 (3%)
+      Number of logic LUT4s:              96
       Number of inserted feedthru LUT4s:  16
       Number of ripple logic:             22 (44 LUT4s)
    Number of IO sites used:   18 out of 39 (46%)
@@ -55,11 +55,11 @@ Design Summary
      hf_osc.osc_inst/CLKHF)
    Number of Clock Enables:  4
       Net VCC_net: 1 loads, 0 SLICEs
-      Net n661: 4 loads, 4 SLICEs
-      Net debounceFSM.n671: 4 loads, 4 SLICEs
-      Net n716: 20 loads, 20 SLICEs
+      Net n671: 4 loads, 4 SLICEs
+      Net debounceFSM.n679: 4 loads, 4 SLICEs
+      Net n726: 20 loads, 20 SLICEs
    Number of LSRs:  1
-      Net sync_col_0__N_28: 50 loads, 50 SLICEs
+      Net n666: 50 loads, 50 SLICEs
 
                                     Page 1
 
@@ -70,16 +70,16 @@ Design Summary
 Design Summary (cont)
 ---------------------
    Top 10 highest fanout non-clock nets:
-      Net sync_col_0__N_28: 50 loads
-      Net debounceFSM.counter_done: 26 loads
-      Net n716: 20 loads
+      Net n666: 50 loads
+      Net debounceFSM.counter[2]: 22 loads
+      Net debounceFSM.counter[3]: 22 loads
+      Net debounceFSM.n1567: 21 loads
+      Net n726: 20 loads
       Net n164: 18 loads
+      Net debounced_value[0]: 10 loads
       Net reset_c: 10 loads
-      Net debounced_value[0]: 9 loads
       Net debounced_value[1]: 8 loads
       Net sdw.value[0]: 7 loads
-      Net sdw.value[1]: 7 loads
-      Net sdw.value[3]: 7 loads
 
 
 
@@ -180,7 +180,7 @@ Run Time and Memory Usage
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 68 MB
-Checksum -- map: 628dcdb440734ac7d14b0dfa932ccf8a485c2250
+Checksum -- map: 73b9f16a689d96669149305dd5d4bbe756694921
 
 
 

@@ -30,8 +30,8 @@ module lab3_wc(input logic [3:0] columns,
 
     logic [3:0] sync_1, sync_2, sync_col;
 
-    always_ff @(posedge clk, negedge reset) begin 
-        if(reset == 0) begin 
+    always_ff @(posedge clk) begin 
+        if(!reset) begin 
                   sync_1 <= 4'b1111;
                   sync_2 <= 4'b1111;
         end
