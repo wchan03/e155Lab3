@@ -21,7 +21,7 @@ module debouncer(input logic clk, reset,
     
     // Register
     always_ff @(posedge clk) begin
-        if (reset == 0) begin
+        if (!reset) begin
             state <= WAIT_LOW; //reset to WAIT_LOW and counter to 0
             counter <= 0;
             sig_out <= 4'b1111;

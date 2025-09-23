@@ -27,7 +27,7 @@ module scanner(input logic clk,
 
     // state register
 	always_ff @(posedge clk) begin
-		if (reset == 0) state <= ROW1;
+		if (!reset) state <= ROW1;
 		else state <= nextstate;
 	end
 
@@ -92,15 +92,6 @@ module scanner(input logic clk,
     assign rows[1] = (state == ROW3) || (state == R3E) || (state == R3P);
     assign rows[0] = (state == ROW4) || (state == R4E) || (state == R4P);
 
-    //debouncer TODO: move out of here??
-    // debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(columns),
-    //                      .key_pressed(key_pressed_debounced), .sig_out(debounced_value));
-
-
-    //decode value from row and column value
-    //key_decode kd(rows, ~debounced_value, value); //~debounced_value because of the logic in key_decode
-    //assign debounced_col = debounced_value;
-    assign key_pressed_debounced = (state == R4P) || (state == R3P) || (state == R2P)|| (state == R1P); //access debouncer only in keypressedconfirmed states
     assign enable = (state == R4E) || (state == R3E) || (state == R2E)|| (state == R1E); 
     assign total_val = {rows, columns};
 

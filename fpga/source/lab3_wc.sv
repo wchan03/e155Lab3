@@ -27,11 +27,12 @@ module lab3_wc(input logic [3:0] columns,
 
 
     //synchronizer: 2 flip flops to sync input signal 
+    // TODO: sync reset???? would need another double flip flop
 
     logic [3:0] sync_1, sync_2, sync_col;
 
-    always_ff @(posedge clk, negedge reset) begin 
-        if(reset == 0) begin 
+    always_ff @(posedge clk) begin 
+        if(!reset) begin 
                   sync_1 <= 4'b1111;
                   sync_2 <= 4'b1111;
         end
@@ -48,10 +49,13 @@ module lab3_wc(input logic [3:0] columns,
 
     debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(sync_col),
                          .key_pressed(key_pressed), .sig_out(debounced_value));
+    
+    logic debounced_key_pressed;
+    assign debounced_key_pressed = (debounced_value != 4'b1111);
 
 
-    // scanning TODO: different (slower)does t clock?
-    scanner scannerFSM(.clk(clk), .reset(reset), .columns(debounced_value), .key_pressed(key_pressed), .rows(rows), .total_val(total_val), .enable(enable)); //.debounced_col(debounced_col),
+    // scanning TODO: does enable work the way i want it to?
+    scanner scannerFSM(.clk(clk), .reset(reset), .columns(debounced_value), .key_pressed(debounced_key_pressed), .rows(rows), .total_val(total_val), .enable(enable)); //.debounced_col(debounced_col),
 
    
 
@@ -59,7 +63,7 @@ module lab3_wc(input logic [3:0] columns,
     key_decode kd(total_val, new_value); 
     
     always_ff @(posedge clk) begin
-        if (reset ==0) begin
+        if (!reset) begin
             value1 <= 4'b0110;
             value2 <= 4'b0001;
         end
