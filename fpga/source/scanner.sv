@@ -20,7 +20,7 @@ module scanner(input logic clk,
     
     // set up necessary internal logic
     //logic key_pressed, key_pressed_debounced; //DO I NEED ALL THESE VALUES?
-    logic [3:0] debounced_value;
+    //logic [3:0] debounced_value;
 
     //assign key_pressed = (columns != 4'b1111); //if any column is pressed
 

@@ -12,7 +12,7 @@ module lab3_wc(input logic [3:0] columns,
     logic int_osc;
     logic enable;
     logic clk;
-    logic [3:0] value1, value2, new_value;
+    logic [7:0] value1, value2, new_value;
     logic [3:0] debounced_value;
     logic [7:0] total_val;
 
@@ -47,7 +47,7 @@ module lab3_wc(input logic [3:0] columns,
 
     assign key_pressed = (sync_col!= 4'b1111); //if any column is pressed
 
-    debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(sync_columns),
+    debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(sync_col),
                          .key_pressed(key_pressed), .sig_out(debounced_value));
     
     //logic debounced_key_pressed;
@@ -55,7 +55,7 @@ module lab3_wc(input logic [3:0] columns,
     //do i want the debounced column into the scanner or the scanner into the debouncer?
 
     // scanning TODO: does enable work the way i want it to?
-    scanner scannerFSM(.clk(clk), .reset(reset), .columns(columns), .key_pressed(key_pressed), .rows(rows), .total_val(total_val), .enable(enable)); //.debounced_col(debounced_col),
+    scanner scannerFSM(.clk(clk), .reset(reset), .columns(debounced_value), .key_pressed(key_pressed), .rows(rows), .total_val(total_val), .enable(enable)); //.debounced_col(debounced_col),
 
    //.columns(columns works)
 
