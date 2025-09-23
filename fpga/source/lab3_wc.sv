@@ -19,6 +19,8 @@ module lab3_wc(input logic [3:0] columns,
     // Internal high-speed oscillator
     HSOSC #(.CLKHF_DIV(2'b01))  //48MHz
         hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
+		
+	//TODO: clock divider to accept the signal slower
 
     //synchronizer: 2 flip flops to sync input signal 
 

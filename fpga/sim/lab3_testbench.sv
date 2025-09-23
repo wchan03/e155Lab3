@@ -13,21 +13,16 @@ module lab3_testbench();
     logic reset;
 
     // DUT outputs
-    logic [3:0] rows;
+    logic [3:0] rows, value1, value2, debounced_col;
     logic [6:0] seg_out;
     logic [1:0] anodes;
+	logic enable;
 
     // Replace HSOSC with a TB-generated clock
     logic tb_clk;
 
     // Instantiate DUT
-    lab3_wc dut (
-        .columns(columns),
-        .reset(reset),
-        .rows(rows),
-        .seg_out(seg_out),
-        .anodes(anodes)
-    );
+    lab3_wc dut(.columns(columns), .reset(reset), .rows(rows), .seg_out(seg_out), .anodes(anodes));
 
     // ------------------------------------------------
     // Clock generation: 10 ns period = 100 MHz
@@ -40,12 +35,12 @@ module lab3_testbench();
         force dut.int_osc = tb_clk;
     end
 
-    // ------------------------------------------------
-    // Stimulus
-    // ------------------------------------------------
     initial begin
-        $dumpfile("lab3_wc_tb.vcd");
-        $dumpvars(0, lab3_wc_tb);
+
+		enable = dut.enable;
+		value1 = dut.value1;
+		value2 = dut.value2;
+		debounced_col = dut.debounced_col;
 
         // Initialize
         reset = 1;
@@ -55,7 +50,7 @@ module lab3_testbench();
 
         // Case 1: simulate pressing column 0
         $display("Press key at column[0]");
-        columns = 4'b1110;  // column 0 active (assuming active-low)
+        columns = 4'b1110;  // column
         repeat (50) @(posedge tb_clk);
         columns = 4'b1111;  // release
         repeat (50) @(posedge tb_clk);

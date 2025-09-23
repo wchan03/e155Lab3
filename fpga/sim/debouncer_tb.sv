@@ -61,11 +61,11 @@ module debouncer_tb();
         // Case 2: simulate bouncing input
         $display("Test 2: bouncing input");
         sig_in = 4'b0101;
-        key_pressed = 1; @(posedge clk);
-        key_pressed = 0; @(posedge clk);
-        key_pressed = 1; @(posedge clk);
-        key_pressed = 0; @(posedge clk);
-        key_pressed = 1;
+        key_pressed = 1; sig_in = 4'b0101; @(posedge clk);
+        key_pressed = 0; sig_in = 4'b0000; @(posedge clk);
+        key_pressed = 1; sig_in = 4'b0101; @(posedge clk);
+        key_pressed = 0; sig_in = 4'b0000; @(posedge clk);
+        key_pressed = 1; sig_in = 4'b0101;
         repeat(40) @(posedge clk);  // eventually stable
         key_pressed = 0;
         repeat(40) @(posedge clk);
