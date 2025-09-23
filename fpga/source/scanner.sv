@@ -6,9 +6,10 @@
 module scanner(input logic clk, 
                 input logic reset,
                 input logic [3:0] columns,
+                input logic key_pressed,
                 output logic [3:0] rows,
-                output logic [3:0] debounced_col,
-                output logic enable
+                output logic enable,
+                output logic [7:0] total_val
                 );
 
     //R1P = row 1 pressed
@@ -18,10 +19,10 @@ module scanner(input logic clk,
         statetype state, nextstate;
     
     // set up necessary internal logic
-    logic key_pressed, key_pressed_debounced; //DO I NEED ALL THESE VALUES?
+    //logic key_pressed, key_pressed_debounced; //DO I NEED ALL THESE VALUES?
     logic [3:0] debounced_value;
 
-    assign key_pressed = (columns != 4'b1111); //if any column is pressed
+    //assign key_pressed = (columns != 4'b1111); //if any column is pressed
 
 
     // state register
@@ -43,7 +44,7 @@ module scanner(input logic clk,
             R1P: begin
                     if(key_pressed) nextstate = R1P; // stay at this state until key is unpressed
                     else nextstate = ROW1;
-                   end
+                   end //TODO: need a extra state here??
             ROW2: begin
                     if(key_pressed) nextstate = R2E;
                     else nextstate = ROW3;
@@ -92,14 +93,16 @@ module scanner(input logic clk,
     assign rows[0] = (state == ROW4) || (state == R4E) || (state == R4P);
 
     //debouncer TODO: move out of here??
-    debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(columns),
-                         .key_pressed(key_pressed_debounced), .sig_out(debounced_value));
+    // debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(columns),
+    //                      .key_pressed(key_pressed_debounced), .sig_out(debounced_value));
 
 
     //decode value from row and column value
     //key_decode kd(rows, ~debounced_value, value); //~debounced_value because of the logic in key_decode
-    assign debounced_col = debounced_value;
+    //assign debounced_col = debounced_value;
     assign key_pressed_debounced = (state == R4P) || (state == R3P) || (state == R2P)|| (state == R1P); //access debouncer only in keypressedconfirmed states
     assign enable = (state == R4E) || (state == R3E) || (state == R2E)|| (state == R1E); 
-    
+    assign total_val = {rows, columns};
+
+
 endmodule

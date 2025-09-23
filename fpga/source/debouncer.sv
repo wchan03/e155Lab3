@@ -16,7 +16,7 @@ module debouncer(input logic clk, reset,
 
     //counter 
 
-    logic [19:0] counter;  // 20-bit counter for ~20ms at 48MHz
+    logic [19:0] counter;  // 20-bit counter for ~20ms at 480Hz
     logic counter_done;
     
     // Register
@@ -34,7 +34,7 @@ module debouncer(input logic clk, reset,
                 else
                     counter <= counter + 1; //otherwise, increment the counter
             end
-            if(nextstate == WAIT_HIGH && state == DEBOUNCEUP ) begin //only send out signal during change between states
+            if((nextstate == WAIT_HIGH && state == DEBOUNCEUP) || (nextstate == WAIT_LOW && state == DEBOUNCEDOWN)) begin //only send out signal during change between states
                 sig_out <= sig_in;
             end
         end
@@ -42,8 +42,8 @@ module debouncer(input logic clk, reset,
         
     // Counter done signal. for 20ms
     //TODO: comment out when testing
-    // For 48MHz clock: 48e6 * 0.020 = 960,000 cycles TODO: change this if you change scanner clock
-    assign counter_done = (counter == 20'd960000); //counter >= 20'd960000
+    // For 48MHz clock: 48e6 * 0.020ms = 5 cycles TODO: change this if you change scanner clock
+    assign counter_done = (counter >= 20'd5); 
 
            
     always_comb begin
@@ -58,7 +58,7 @@ module debouncer(input logic clk, reset,
                                     if (key_pressed) nextstate = WAIT_HIGH;
                                     else nextstate = WAIT_LOW;
                                 end 
-                            else nextstate=DEBOUNCEUP;
+                            else nextstate=DEBOUNCEUP; //aka if the counter is not done
                         end
             WAIT_HIGH: begin
                         if(!key_pressed)  nextstate = DEBOUNCEDOWN;
@@ -68,7 +68,7 @@ module debouncer(input logic clk, reset,
                                     if(!key_pressed) nextstate = WAIT_LOW;
                                     else nextstate = WAIT_HIGH;
                                 end 
-                                else nextstate = DEBOUNCEUP;
+                                else nextstate = DEBOUNCEDOWN;
                             end
             default:    begin 
                             nextstate = WAIT_LOW;

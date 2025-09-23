@@ -16,13 +16,14 @@ module seg_disp_write(input logic [3:0] value1, value2,
     
 
     // Counter
-    always_ff @(posedge clk) begin  
+    always_ff @(posedge clk) begin   //clk runs at 
         counter <= counter + 19'd3; //TODO: double check frequency here
     end
     
     // Google AI says the human eye can detect up to 40Hz of flickering so started there
     // Select is based on the clock
-    assign select = counter[19];
+    //assign select = counter[19];
+	assign select = clk;
 
     // Select input
 	mux in(value1, value2, select, value); 

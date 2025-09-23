@@ -4,8 +4,12 @@
 // Figure out key value based on row and columns
 
 
-module key_decode(input logic [3:0] r, c, 
+module key_decode(input logic [7:0] total_val,
                     output logic [3:0] value);
+	//unpack total val
+	logic [3:0] r, c;
+	assign r = total_val[7:4];
+	assign c = ~total_val[3:0];
 
     // rows are encoded 1 hot
     // so are columns. bits are flipped inside call in scanner.sv

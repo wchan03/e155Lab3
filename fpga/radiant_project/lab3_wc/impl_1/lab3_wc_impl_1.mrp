@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2024.2.0.3.0
-Mapped on: Mon Sep 22 17:40:29 2025
+Mapped on: Mon Sep 22 23:40:13 2025
 
 Design Information
 ------------------
@@ -22,12 +22,11 @@ Command line:   map -pdc C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/
 Design Summary
 --------------
 
-   Number of slice registers:  76 out of  5280 (1%)
+   Number of slice registers:  77 out of  5280 (1%)
    Number of I/O registers:      0 out of   117 (0%)
-   Number of LUT4s:           155 out of  5280 (3%)
+   Number of LUT4s:           154 out of  5280 (3%)
       Number of logic LUT4s:              94
       Number of inserted feedthru LUT4s:  16
-      Number of replicated LUT4s:          1
       Number of ripple logic:             22 (44 LUT4s)
    Number of IO sites used:   18 out of 39 (46%)
       Number of IO sites used for general PIO: 18
@@ -50,16 +49,17 @@ Design Summary
    Number of SPIs:             0 out of 2 (0%)
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             0 out of 1 (0%)
-   Number of Clocks:  1
-      Net int_osc: 67 loads, 67 rising, 0 falling (Driver: Pin
+   Number of Clocks:  2
+      Net clk: 56 loads, 56 rising, 0 falling (Driver: Pin ck.counter_i23/Q)
+      Net int_osc: 11 loads, 11 rising, 0 falling (Driver: Pin
      hf_osc.osc_inst/CLKHF)
    Number of Clock Enables:  4
       Net VCC_net: 1 loads, 0 SLICEs
-      Net n758: 20 loads, 20 SLICEs
-      Net n702: 4 loads, 4 SLICEs
-      Net scannerFSM.debounceFSM.n710: 4 loads, 4 SLICEs
+      Net n677: 4 loads, 4 SLICEs
+      Net n732: 20 loads, 20 SLICEs
+      Net debounceFSM.n687: 4 loads, 4 SLICEs
    Number of LSRs:  1
-      Pin reset: 51 loads, 51 SLICEs (Net: reset_c)
+      Pin reset: 50 loads, 50 SLICEs (Net: reset_c)
 
                                     Page 1
 
@@ -70,16 +70,16 @@ Design Summary
 Design Summary (cont)
 ---------------------
    Top 10 highest fanout non-clock nets:
-      Net reset_c: 60 loads
-      Net scannerFSM.debounceFSM.n39: 23 loads
-      Net n758: 20 loads
-      Net scannerFSM.n22[1]: 12 loads
-      Net debounced_col[0]: 9 loads
-      Net debounced_col[1]: 8 loads
-      Net rows_c_2: 7 loads
+      Net reset_c: 59 loads
+      Net debounceFSM.counter_done: 25 loads
+      Net n732: 20 loads
+      Net n163: 17 loads
+      Net debounced_value[0]: 9 loads
+      Net debounced_value[1]: 8 loads
       Net sdw.value[0]: 7 loads
       Net sdw.value[1]: 7 loads
       Net sdw.value[2]: 7 loads
+      Net sdw.value[3]: 7 loads
 
 
 
@@ -171,7 +171,7 @@ Instance Name: hf_osc.osc_inst
 Constraint Summary
 ------------------
 
-   Total number of constraints: 18
+   Total number of constraints: 19
    Total number of constraints dropped: 0
 
 Run Time and Memory Usage
@@ -180,7 +180,7 @@ Run Time and Memory Usage
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
    Peak Memory Usage: 68 MB
-Checksum -- map: a8552b99d8fcee1750112aa1425bd1d1a9e24e8e
+Checksum -- map: bf51b2498be10ba6c158b3de3d6cca902d6a036a
 
 
 

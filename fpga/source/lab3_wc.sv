@@ -11,22 +11,26 @@ module lab3_wc(input logic [3:0] columns,
 
     logic int_osc;
     logic enable;
+    logic clk;
     logic [3:0] value1, value2, new_value;
-    logic [3:0] debounced_col;
+    logic [3:0] debounced_value;
+    logic [7:0] total_val;
 
 
     // Set up clock 
     // Internal high-speed oscillator
-    HSOSC #(.CLKHF_DIV(2'b01))  //48MHz
-        hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
+    HSOSC #(.CLKHF_DIV(2'b01))  //24MHz
+        hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc)); //int_osc
 		
-	//TODO: clock divider to accept the signal slower
+	//clock divider to slow down input signal. EVERYTHING SHOULD RUN ON THIS CLOCK!
+    clk_div ck(int_osc, clk); 
+
 
     //synchronizer: 2 flip flops to sync input signal 
 
     logic [3:0] sync_1, sync_2, sync_col;
 
-    always_ff @(posedge int_osc or posedge reset) begin 
+    always_ff @(posedge clk, posedge reset) begin 
         if(reset) begin 
                   sync_1 <= 4'b1111;
                   sync_2 <= 4'b1111;
@@ -40,16 +44,23 @@ module lab3_wc(input logic [3:0] columns,
     //use syncronized data 
     assign sync_col = sync_2;
 
+    assign key_pressed = (sync_col!= 4'b1111); //if any column is pressed
+
+    debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(sync_col),
+                         .key_pressed(key_pressed), .sig_out(debounced_value));
+
+
     // scanning TODO: different (slower)does t clock?
-    scanner scannerFSM(.clk(int_osc), .reset(reset), .columns(sync_col), .rows(rows), .debounced_col(debounced_col), .enable(enable)); 
+    scanner scannerFSM(.clk(clk), .reset(reset), .columns(debounced_value), .key_pressed(key_pressed), .rows(rows), .total_val(total_val), .enable(enable)); //.debounced_col(debounced_col),
 
+   
 
-    //decode value from row and column value
-    key_decode kd(rows, ~debounced_col, new_value); //~debounced_value because of the logic in key_decode    // switch values
+    //decode value from row and column values
+    key_decode kd(total_val, new_value); 
     
-    always_ff @(posedge int_osc) begin
+    always_ff @(posedge clk) begin
         if (reset) begin
-            value1 <= 4'b0100;
+            value1 <= 4'b0110;
             value2 <= 4'b0001;
         end
         else begin
@@ -57,10 +68,16 @@ module lab3_wc(input logic [3:0] columns,
                 value2 <= value1;
                 value1 <= new_value;
             end
+            else begin //TODO: is this line necessary?
+                value1 <= value1;
+                value2 <= value2;
+            end
         end
     end
 
-    // Write to the display
-    seg_disp_write sdw(.value1(value1), .value2(value2), .clk(int_osc), .seg_out(seg_out), .anodes(anodes));
+    // Write to the display TODO: clock values here?
+    seg_disp_write sdw(.value1(value1), .value2(value2), .clk(clk), .seg_out(seg_out), .anodes(anodes));
+
+    //TODO
 
 endmodule 

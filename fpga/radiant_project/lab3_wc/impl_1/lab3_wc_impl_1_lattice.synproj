@@ -49,6 +49,7 @@
 "C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/scanner.sv"
 "C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv"
 "C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv"
+"C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/clk_div.sv"
 
 
 -path "C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_wc"
