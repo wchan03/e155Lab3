@@ -832,3 +832,376 @@ run 999999999999999
 #    Time: 221559913008 ps  Iteration: 3  Instance: /lab3_testbench
 # 1
 # Break in Module lab3_testbench at C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv line 66
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 3 failed with no errors.
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 3 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# init_auxdbinfo(): INTERNAL ERROR: Cannot open page file "C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_wc/work/@_opt/_lib4_11.qpg" in read mode
+# doVOpenFlatFile(): INTERNAL ERROR: Cannot obtain auxid to open C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_wc/work/@_opt/_deps
+# ** Warning: (vsim-56) Problem with optimized design dependency file "C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_wc/work/@_opt/_deps" - file open failed. (Code 12)
+# No such file or directory. (errno = ENOENT)
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "scanner(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading sv_std.std
+# Loading work.lab3_testbench(fast)
+# Loading work.lab3_wc(fast)
+# Loading iCE40UP.HSOSC(fast)
+# Loading work.clk_div(fast)
+# Loading work.debouncer(fast)
+# Loading work.scanner(fast)
+# Loading work.key_decode(fast)
+# Loading work.seg_disp_write(fast)
+# Loading work.mux(fast)
+# Loading work.demux2_1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/key_decode.sv(8).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/kd File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 64
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value1'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 84
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value2'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 84
+run 999999999999999
+# Press key at column[0]
+# Press key at column[2]
+# Simulation complete.
+# ** Note: $finish    : C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv(66)
+#    Time: 221559913008 ps  Iteration: 3  Instance: /lab3_testbench
+# 1
+# Break in Module lab3_testbench at C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv line 66
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv failed with 1 errors.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 4 failed with 1 error.
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 3 failed with no errors.
+add wave -position insertpoint  \
+sim:/lab3_testbench/dut/enable
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# init_auxdbinfo(): INTERNAL ERROR: Cannot open page file "C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_wc/work/@_opt/_lib4_11.qpg" in read mode
+# doVOpenFlatFile(): INTERNAL ERROR: Cannot obtain auxid to open C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_wc/work/@_opt/_deps
+# ** Warning: (vsim-56) Problem with optimized design dependency file "C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/radiant_project/lab3_wc/work/@_opt/_deps" - file open failed. (Code 12)
+# No such file or directory. (errno = ENOENT)
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading sv_std.std
+# Loading work.lab3_testbench(fast)
+# Loading work.lab3_wc(fast)
+# Loading iCE40UP.HSOSC(fast)
+# Loading work.clk_div(fast)
+# Loading work.debouncer(fast)
+# Loading work.scanner(fast)
+# Loading work.key_decode(fast)
+# Loading work.seg_disp_write(fast)
+# Loading work.mux(fast)
+# Loading work.demux2_1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/key_decode.sv(8).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/kd File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 64
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value1'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 84
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value2'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 84
+run 999999999999999
+# Press key at column[0]
+# Press key at column[2]
+# Simulation complete.
+# ** Note: $finish    : C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv(66)
+#    Time: 221559913008 ps  Iteration: 3  Instance: /lab3_testbench
+# 1
+# Break in Module lab3_testbench at C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv line 66
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 3 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "scanner(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.lab3_testbench(fast)
+# Loading work.lab3_wc(fast)
+# Loading iCE40UP.HSOSC(fast)
+# Loading work.clk_div(fast)
+# Loading work.scanner(fast)
+# Loading work.debouncer(fast)
+# Loading work.key_decode(fast)
+# Loading work.seg_disp_write(fast)
+# Loading work.mux(fast)
+# Loading work.demux2_1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/key_decode.sv(8).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/kd File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 76
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value1'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value2'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+run 999999999999999
+# Press key at column[0]
+# Press key at column[2]
+# Simulation complete.
+# ** Note: $finish    : C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv(66)
+#    Time: 221559913008 ps  Iteration: 3  Instance: /lab3_testbench
+# 1
+# Break in Module lab3_testbench at C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv line 66
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv failed with 1 errors.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv failed with 1 errors.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 5 failed with 2 errors.
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 3 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Warning: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv(67): (vopt-2685) [TFMPC] - Too few port connections for 'scannerFSM'.  Expected 7, found 6.
+# ** Warning: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv(67): (vopt-2718) [TFMPC] - Missing connection for port 'enable'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
+# Loading sv_std.std
+# Loading work.lab3_testbench(fast)
+# Loading work.lab3_wc(fast)
+# Loading iCE40UP.HSOSC(fast)
+# Loading work.clk_div(fast)
+# Loading work.scanner(fast)
+# Loading work.debouncer(fast)
+# Loading work.key_decode(fast)
+# Loading work.seg_disp_write(fast)
+# Loading work.mux(fast)
+# Loading work.demux2_1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/key_decode.sv(8).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/kd File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 76
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value1'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value2'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+run 999999999999999
+# Press key at column[0]
+# Press key at column[2]
+# Simulation complete.
+# ** Note: $finish    : C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv(66)
+#    Time: 221559913008 ps  Iteration: 3  Instance: /lab3_testbench
+# 1
+# Break in Module lab3_testbench at C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv line 66
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 3 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.lab3_testbench(fast)
+# Loading work.lab3_wc(fast)
+# Loading iCE40UP.HSOSC(fast)
+# Loading work.clk_div(fast)
+# Loading work.scanner(fast)
+# Loading work.debouncer(fast)
+# Loading work.key_decode(fast)
+# Loading work.seg_disp_write(fast)
+# Loading work.mux(fast)
+# Loading work.demux2_1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/key_decode.sv(8).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/kd File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 76
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value1'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value2'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+run 999999999999999
+# Press key at column[0]
+# Press key at column[2]
+# Simulation complete.
+# ** Note: $finish    : C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv(66)
+#    Time: 221559913008 ps  Iteration: 3  Instance: /lab3_testbench
+# 1
+# Break in Module lab3_testbench at C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv line 66
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 3 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.lab3_testbench(fast)
+# Loading work.lab3_wc(fast)
+# Loading iCE40UP.HSOSC(fast)
+# Loading work.clk_div(fast)
+# Loading work.scanner(fast)
+# Loading work.debouncer(fast)
+# Loading work.key_decode(fast)
+# Loading work.seg_disp_write(fast)
+# Loading work.mux(fast)
+# Loading work.demux2_1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/key_decode.sv(8).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/kd File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 76
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value1'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value2'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+run 999999999999999
+# Press key at column[0]
+# Press key at column[2]
+# Simulation complete.
+# ** Note: $finish    : C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv(66)
+#    Time: 221559913008 ps  Iteration: 3  Instance: /lab3_testbench
+# 1
+# Break in Module lab3_testbench at C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv line 66
+# Compile of key_decode_testbench.sv was successful.
+# Compile of lab3_testbench.sv was successful.
+# Compile of scanner_testbench.sv was successful.
+# Compile of debouncer.sv was successful.
+# Compile of demux2_1.sv was successful.
+# Compile of key_decode.sv was successful.
+# Compile of lab3_wc.sv was successful.
+# Compile of mux.sv was successful.
+# Compile of scanner.sv was successful.
+# Compile of seg_disp_write.sv was successful.
+# Compile of scanner_tb.sv was successful.
+# Compile of debouncer_tb.sv was successful.
+# Compile of clk_div.sv was successful.
+# 13 compiles, 3 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "debouncer(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.lab3_testbench(fast)
+# Loading work.lab3_wc(fast)
+# Loading iCE40UP.HSOSC(fast)
+# Loading work.clk_div(fast)
+# Loading work.scanner(fast)
+# Loading work.debouncer(fast)
+# Loading work.key_decode(fast)
+# Loading work.seg_disp_write(fast)
+# Loading work.mux(fast)
+# Loading work.demux2_1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/key_decode.sv(8).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/kd File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 76
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value1'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'value2'. The port definition is at: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/seg_disp_write.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /lab3_testbench/dut/sdw File: C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/source/lab3_wc.sv Line: 96
+run 999999999999999
+# Press key at column[0]
+# Press key at column[2]
+# Simulation complete.
+# ** Note: $finish    : C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv(66)
+#    Time: 221559913008 ps  Iteration: 3  Instance: /lab3_testbench
+# 1
+# Break in Module lab3_testbench at C:/Users/wchan/Documents/GitHub/e155Lab3/e155Lab3/fpga/sim/lab3_testbench.sv line 66
+# End time: 17:02:51 on Sep 23,2025, Elapsed time: 4:08:28
+# Errors: 0, Warnings: 5

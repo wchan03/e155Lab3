@@ -65,10 +65,10 @@ module lab3_wc(input logic [3:0] columns,
 
     // scanning TODO: does enable work the way i want it to?
     scanner scannerFSM(.clk(clk), .reset(reset), .columns(sync_col), .key_pressed(key_pressed), //inputs
-                        .rows(rows), .total_val(total_val), .enable(enable)); //outputs
+                        .rows(rows), .total_val(total_val));//, .enable(enable)); //outputs
 
     debouncer debounceFSM(.clk(clk), .reset(reset), .sig_in(total_val),
-                         .key_pressed(key_pressed), .sig_out(debounced_value));
+                         .key_pressed(key_pressed), .sig_out(debounced_value), .enable(enable));
    //.columns(columns works)
 
     //decode value from row and column values

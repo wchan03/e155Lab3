@@ -18,7 +18,7 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>../../impl_1/lab3_wc_impl_1.bin</File>
-			<FileTime>09/22/25 20:59:36</FileTime>
+			<FileTime>09/23/25 17:00:47</FileTime>
 			<JedecChecksum>0x9F37</JedecChecksum>
 			<MemoryType>External SPI Flash Memory (SPI FLASH)</MemoryType>
 			<Operation>Erase,Program,Verify</Operation>

@@ -50,16 +50,16 @@ module lab3_testbench();
         // Case 1: simulate pressing column 0
         $display("Press key at column[0]");
         columns = 4'b1110;  // column
-        repeat (8) @(posedge tb_clk);
+        repeat (10) @(posedge tb_clk);
         columns = 4'b1111;  // release
-        repeat (8) @(posedge tb_clk);
+        repeat (10) @(posedge tb_clk);
 
         // Case 2: simulate pressing column 2
         $display("Press key at column[2]");
         columns = 4'b1011;  // column 2 active
-        repeat (8) @(posedge tb_clk);
+        repeat (10) @(posedge tb_clk);
         columns = 4'b1111;  // release
-        repeat (8) @(posedge tb_clk);
+        repeat (10) @(posedge tb_clk);
 
         // Done
         $display("Simulation complete.");

@@ -4,11 +4,10 @@
 // Debounces input signal from keypad press
 
 module debouncer(input logic clk, reset,
-                //input logic [3:0] sig_in, 
                 input logic [7:0] sig_in,
                 input logic key_pressed,
-                //output logic [3:0] sig_out
-                output logic [7:0] sig_out);
+                output logic [7:0] sig_out,
+                output logic enable);
 
     // initialize state information
     typedef enum logic [3:0] {WAIT_LOW, DEBOUNCEUP, WAIT_HIGH, DEBOUNCEDOWN}
@@ -37,9 +36,12 @@ module debouncer(input logic clk, reset,
                 else
                     counter <= counter + 1; //otherwise, increment the counter
             end
-            if((nextstate == WAIT_HIGH && state == DEBOUNCEUP) || (nextstate == WAIT_LOW && state == DEBOUNCEDOWN)) begin //only send out signal during change between states
+            if((state == WAIT_LOW && nextstate == DEBOUNCEUP)) begin
+            //if((nextstate == WAIT_HIGH && state == DEBOUNCEUP) || (nextstate == WAIT_LOW && state == DEBOUNCEDOWN)) begin //only send out signal during change between states
                 sig_out <= sig_in;
+                //enable <= 1;
             end
+            //else enable <= 0;
         end
     end
         
@@ -58,9 +60,7 @@ module debouncer(input logic clk, reset,
                         end
 
             DEBOUNCEUP: begin if(counter_done) begin 
-                                    if (key_pressed) nextstate = WAIT_HIGH;
-                                    else nextstate = WAIT_LOW;
-                                    //nextstate = WAIT_HIGH;
+                                    nextstate = WAIT_HIGH;
                                 end 
                             else nextstate=DEBOUNCEUP; //aka if the counter is not done
                         end
@@ -69,9 +69,7 @@ module debouncer(input logic clk, reset,
                         else nextstate = WAIT_HIGH;
                     end
             DEBOUNCEDOWN:   begin if(counter_done) begin
-                                    if(!key_pressed) nextstate = WAIT_LOW;
-                                    else nextstate = WAIT_HIGH;
-                                    //nextstate = WAIT_LOW;
+                                    nextstate = WAIT_LOW;
                                 end 
                                 else nextstate = DEBOUNCEDOWN;
                             end
@@ -80,6 +78,7 @@ module debouncer(input logic clk, reset,
             end 
         endcase
 
-    end   
+    end 
+    assign enable = (nextstate == DEBOUNCEUP && state == WAIT_LOW);  //counter_done
 
 endmodule
